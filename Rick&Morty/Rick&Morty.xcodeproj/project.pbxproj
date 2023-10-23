@@ -11,7 +11,15 @@
 		24E03B4D2AE6AB02005E78DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B4C2AE6AB02005E78DD /* SceneDelegate.swift */; };
 		24E03B542AE6AB03005E78DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E03B532AE6AB03005E78DD /* Assets.xcassets */; };
 		24E03B572AE6AB03005E78DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E03B552AE6AB03005E78DD /* LaunchScreen.storyboard */; };
-		24E03B612AE6ACD5005E78DD /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B602AE6ACD5005E78DD /* TestVC.swift */; };
+		24E03B6F2AE6B220005E78DD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B6E2AE6B220005E78DD /* Coordinator.swift */; };
+		24E03B712AE6B2A3005E78DD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B702AE6B2A3005E78DD /* AppCoordinator.swift */; };
+		24E03B742AE6B7F0005E78DD /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B732AE6B7F0005E78DD /* MainCoordinator.swift */; };
+		24E03B762AE6B83E005E78DD /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B752AE6B83E005E78DD /* BaseTabBarController.swift */; };
+		24E03B782AE6B99F005E78DD /* CharacterTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B772AE6B99F005E78DD /* CharacterTabCoordinator.swift */; };
+		24E03B7D2AE6BA31005E78DD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B7C2AE6BA31005E78DD /* BaseViewController.swift */; };
+		24E03B7F2AE6BA52005E78DD /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B7E2AE6BA52005E78DD /* CharacterViewController.swift */; };
+		24E03B822AE6BAA3005E78DD /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B812AE6BAA2005E78DD /* LogoutViewController.swift */; };
+		24E03B842AE6BAC5005E78DD /* LogoutTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B832AE6BAC5005E78DD /* LogoutTabCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +29,15 @@
 		24E03B532AE6AB03005E78DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24E03B562AE6AB03005E78DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24E03B582AE6AB03005E78DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24E03B602AE6ACD5005E78DD /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		24E03B6E2AE6B220005E78DD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		24E03B702AE6B2A3005E78DD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		24E03B732AE6B7F0005E78DD /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		24E03B752AE6B83E005E78DD /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		24E03B772AE6B99F005E78DD /* CharacterTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTabCoordinator.swift; sourceTree = "<group>"; };
+		24E03B7C2AE6BA31005E78DD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		24E03B7E2AE6BA52005E78DD /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
+		24E03B812AE6BAA2005E78DD /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		24E03B832AE6BAC5005E78DD /* LogoutTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutTabCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				24E03B5E2AE6AB67005E78DD /* Application */,
+				24E03B722AE6B7DC005E78DD /* Coordinator */,
 				24E03B642AE6ADE5005E78DD /* Core */,
 				24E03B5F2AE6AB6F005E78DD /* Recources */,
 			);
@@ -83,9 +100,88 @@
 		24E03B642AE6ADE5005E78DD /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				24E03B602AE6ACD5005E78DD /* TestVC.swift */,
+				24E03B6D2AE6B1CB005E78DD /* Protocol */,
+				24E03B6A2AE6B0E0005E78DD /* Base */,
+				24E03B682AE6B0B8005E78DD /* Module */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		24E03B682AE6B0B8005E78DD /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				24E03B692AE6B0CE005E78DD /* Auth */,
+				24E03B6B2AE6B12C005E78DD /* Character */,
+				24E03B6C2AE6B173005E78DD /* Logout */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		24E03B692AE6B0CE005E78DD /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		24E03B6A2AE6B0E0005E78DD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				24E03B752AE6B83E005E78DD /* BaseTabBarController.swift */,
+				24E03B7C2AE6BA31005E78DD /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		24E03B6B2AE6B12C005E78DD /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				24E03B792AE6BA14005E78DD /* Controller */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		24E03B6C2AE6B173005E78DD /* Logout */ = {
+			isa = PBXGroup;
+			children = (
+				24E03B802AE6BA8D005E78DD /* Controller */,
+			);
+			path = Logout;
+			sourceTree = "<group>";
+		};
+		24E03B6D2AE6B1CB005E78DD /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				24E03B6E2AE6B220005E78DD /* Coordinator.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		24E03B722AE6B7DC005E78DD /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				24E03B702AE6B2A3005E78DD /* AppCoordinator.swift */,
+				24E03B732AE6B7F0005E78DD /* MainCoordinator.swift */,
+				24E03B772AE6B99F005E78DD /* CharacterTabCoordinator.swift */,
+				24E03B832AE6BAC5005E78DD /* LogoutTabCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		24E03B792AE6BA14005E78DD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24E03B7E2AE6BA52005E78DD /* CharacterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		24E03B802AE6BA8D005E78DD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24E03B812AE6BAA2005E78DD /* LogoutViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,8 +254,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E03B782AE6B99F005E78DD /* CharacterTabCoordinator.swift in Sources */,
+				24E03B762AE6B83E005E78DD /* BaseTabBarController.swift in Sources */,
+				24E03B842AE6BAC5005E78DD /* LogoutTabCoordinator.swift in Sources */,
+				24E03B6F2AE6B220005E78DD /* Coordinator.swift in Sources */,
+				24E03B742AE6B7F0005E78DD /* MainCoordinator.swift in Sources */,
+				24E03B822AE6BAA3005E78DD /* LogoutViewController.swift in Sources */,
 				24E03B4B2AE6AB02005E78DD /* AppDelegate.swift in Sources */,
-				24E03B612AE6ACD5005E78DD /* TestVC.swift in Sources */,
+				24E03B7D2AE6BA31005E78DD /* BaseViewController.swift in Sources */,
+				24E03B7F2AE6BA52005E78DD /* CharacterViewController.swift in Sources */,
+				24E03B712AE6B2A3005E78DD /* AppCoordinator.swift in Sources */,
 				24E03B4D2AE6AB02005E78DD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
