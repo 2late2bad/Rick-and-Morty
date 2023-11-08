@@ -34,7 +34,8 @@ final class AppCoordinator: Coordinator {
     
     private func startSomeCoordinator() {
         guard let auth else { return }
-        auth.isSessionActive ? startMainTabBarCoordinator() : startLoginCoordinator()
+        //auth.isSessionActive ? startMainTabBarCoordinator() : startLoginCoordinator()
+        startMainTabBarCoordinator()
     }
     
     private func startLoginCoordinator() {

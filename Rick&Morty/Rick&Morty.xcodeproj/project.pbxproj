@@ -30,6 +30,11 @@
 		247A90482AFBA9AB007F0805 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90472AFBA9AB007F0805 /* SettingsViewModel.swift */; };
 		247A904A2AFBA9DC007F0805 /* SettingsViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90492AFBA9DC007F0805 /* SettingsViewNavigation.swift */; };
 		247A904C2AFBA9EE007F0805 /* ItemSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A904B2AFBA9EE007F0805 /* ItemSettingViewModel.swift */; };
+		247A90532AFBB661007F0805 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90522AFBB661007F0805 /* Endpoint.swift */; };
+		247A90552AFBB6A0007F0805 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90542AFBB6A0007F0805 /* NetworkError.swift */; };
+		247A90572AFBB765007F0805 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90562AFBB765007F0805 /* Network.swift */; };
+		247A90592AFBB7B5007F0805 /* StatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90582AFBB7B5007F0805 /* StatusResponse.swift */; };
+		247A905B2AFBB831007F0805 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A905A2AFBB831007F0805 /* NetworkService.swift */; };
 		24E03B4B2AE6AB02005E78DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B4A2AE6AB02005E78DD /* AppDelegate.swift */; };
 		24E03B4D2AE6AB02005E78DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B4C2AE6AB02005E78DD /* SceneDelegate.swift */; };
 		24E03B542AE6AB03005E78DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E03B532AE6AB03005E78DD /* Assets.xcassets */; };
@@ -61,6 +66,11 @@
 		247A90472AFBA9AB007F0805 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		247A90492AFBA9DC007F0805 /* SettingsViewNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewNavigation.swift; sourceTree = "<group>"; };
 		247A904B2AFBA9EE007F0805 /* ItemSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSettingViewModel.swift; sourceTree = "<group>"; };
+		247A90522AFBB661007F0805 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		247A90542AFBB6A0007F0805 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		247A90562AFBB765007F0805 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		247A90582AFBB7B5007F0805 /* StatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResponse.swift; sourceTree = "<group>"; };
+		247A905A2AFBB831007F0805 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		24E03B472AE6AB02005E78DD /* Rick&Morty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick&Morty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E03B4A2AE6AB02005E78DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24E03B4C2AE6AB02005E78DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -227,8 +237,45 @@
 			isa = PBXGroup;
 			children = (
 				247A90192AFB99C0007F0805 /* AuthService */,
+				247A904E2AFBB60D007F0805 /* Network */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		247A904E2AFBB60D007F0805 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				247A904F2AFBB63B007F0805 /* Composition */,
+				247A90502AFBB642007F0805 /* Implementation */,
+				247A90512AFBB651007F0805 /* Endpoint */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		247A904F2AFBB63B007F0805 /* Composition */ = {
+			isa = PBXGroup;
+			children = (
+				247A90562AFBB765007F0805 /* Network.swift */,
+				247A90542AFBB6A0007F0805 /* NetworkError.swift */,
+				247A90582AFBB7B5007F0805 /* StatusResponse.swift */,
+			);
+			path = Composition;
+			sourceTree = "<group>";
+		};
+		247A90502AFBB642007F0805 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				247A905A2AFBB831007F0805 /* NetworkService.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		247A90512AFBB651007F0805 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				247A90522AFBB661007F0805 /* Endpoint.swift */,
+			);
+			path = Endpoint;
 			sourceTree = "<group>";
 		};
 		24DE37A42AEAAE25007FCA1E /* Extension */ = {
@@ -396,6 +443,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				247A902C2AFB9BDC007F0805 /* MainTabBarController.swift in Sources */,
+				247A90552AFBB6A0007F0805 /* NetworkError.swift in Sources */,
+				247A90532AFBB661007F0805 /* Endpoint.swift in Sources */,
+				247A90572AFBB765007F0805 /* Network.swift in Sources */,
 				247A90102AFB984C007F0805 /* ParentCoordinator.swift in Sources */,
 				247A90132AFB987C007F0805 /* Router.swift in Sources */,
 				247A903A2AFBA698007F0805 /* CharactersFactory.swift in Sources */,
@@ -410,6 +460,7 @@
 				247A903C2AFBA6A2007F0805 /* CharactersCoordinator.swift in Sources */,
 				24E03B4D2AE6AB02005E78DD /* SceneDelegate.swift in Sources */,
 				247A90462AFBA98B007F0805 /* SettingsViewController.swift in Sources */,
+				247A90592AFBB7B5007F0805 /* StatusResponse.swift in Sources */,
 				247A90232AFB9AF3007F0805 /* LoginCoordinator.swift in Sources */,
 				247A90162AFB9975007F0805 /* AppFactory.swift in Sources */,
 				247A904C2AFBA9EE007F0805 /* ItemSettingViewModel.swift in Sources */,
@@ -419,6 +470,7 @@
 				247A90212AFB9AE4007F0805 /* LoginFactory.swift in Sources */,
 				247A902E2AFB9C76007F0805 /* MainTabBarFactory.swift in Sources */,
 				247A90182AFB9989007F0805 /* AppDIContainer.swift in Sources */,
+				247A905B2AFBB831007F0805 /* NetworkService.swift in Sources */,
 				247A90422AFBA887007F0805 /* SettingsFactory.swift in Sources */,
 				247A90482AFBA9AB007F0805 /* SettingsViewModel.swift in Sources */,
 			);
