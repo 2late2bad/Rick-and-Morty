@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol CharactersFactory {
     func makeCharactersViewController(coordinator: CharactersViewControllerCoordinator) -> UIViewController
@@ -15,8 +16,15 @@ protocol CharactersFactory {
 
 struct CharactersFactoryImp: CharactersFactory {
     
+    let urlList: String
+    
     func makeCharactersViewController(coordinator: CharactersViewControllerCoordinator) -> UIViewController {
-        let controller = CharactersViewController()
+        let state = PassthroughSubject<StateController, Never>()
+        let network = NetworkService()
+        let characterRepository = CharacterRepositoryImp(networkService: network)
+        let loadCharactersUseCase = LoadCharacterUseCaseImp(characterRepository: characterRepository, url: urlList)
+        let viewModel = CharacterViewModelImp(loadCharactersUseCase: loadCharactersUseCase, state: state)
+        let controller = CharactersViewController(viewModel: viewModel)
         controller.navigationItem.title = "Персонажи"
         return controller
     }

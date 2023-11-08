@@ -22,7 +22,7 @@ struct MainTabBarFactory {
     }
     
     private func makeCharactersCoordinator() -> Coordinator {
-        let factory = CharactersFactoryImp()
+        let factory = CharactersFactoryImp(urlList: Endpoint.charURL)
         let router = RouterImp(rootViewController: UINavigationController.init())
         return CharactersCoordinator(router: router, factory: factory)
     }

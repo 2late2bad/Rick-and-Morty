@@ -15,7 +15,9 @@ enum Resources {
         // Common
         static let widthScreen = UIScreen.main.bounds.width
         static let doublePadding: CGFloat = 20
+        static let normalPadding: CGFloat = 10
         // For Cells
+        static let defaultHeightCell = 44
         static let defaultHeightContainerCell: CGFloat = 100
         static let defaultCornerRadius: CGFloat = 10
     }

@@ -64,6 +64,12 @@ final class ItemCharacterTableViewCell: UITableViewCell {
     }
     
     // MARK: - Methods
+    func configure(viewModel: ItemCharacterViewModel) {
+        nameLabel.text = viewModel.name
+        specieLabel.text = viewModel.specie
+        statusLabel.text = viewModel.status
+    }
+    
     private func setupSelf() {
         selectionStyle = .none
         addSubview(mainContainerView)
@@ -87,9 +93,9 @@ final class ItemCharacterTableViewCell: UITableViewCell {
             right: mainContainerView.rightAnchor,
             bottom: mainContainerView.bottomAnchor,
             left: characterImageView.rightAnchor,
-            pTop: R.ViewValues.doublePadding,
-            pBottom: R.ViewValues.doublePadding,
-            pLeft: R.ViewValues.doublePadding)
+            pTop: R.ViewValues.normalPadding,
+            pBottom: R.ViewValues.normalPadding,
+            pLeft: R.ViewValues.normalPadding)
         
         [nameLabel, specieLabel, statusLabel].forEach { labelContainerStackView.addArrangedSubview($0) }
     }

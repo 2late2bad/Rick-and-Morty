@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		246100F92AFBE4F4000E1295 /* CharacterRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246100F82AFBE4F4000E1295 /* CharacterRepositoryImp.swift */; };
 		246100FB2AFBE5B4000E1295 /* ResultsCharacterDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246100FA2AFBE5B4000E1295 /* ResultsCharacterDTO+Mapping.swift */; };
+		246100FE2AFC0C1C000E1295 /* LoadCharacterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246100FD2AFC0C1C000E1295 /* LoadCharacterUseCase.swift */; };
+		246101022AFC0DD7000E1295 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101012AFC0DD7000E1295 /* CharacterViewModel.swift */; };
+		246101042AFC0E36000E1295 /* ItemCharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101032AFC0E36000E1295 /* ItemCharacterViewModel.swift */; };
+		246101062AFC0ED6000E1295 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101052AFC0ED6000E1295 /* BaseViewModel.swift */; };
+		246101082AFC0F4A000E1295 /* StateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101072AFC0F4A000E1295 /* StateController.swift */; };
+		2461010A2AFC1C12000E1295 /* UITableViewController+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101092AFC1C12000E1295 /* UITableViewController+ext.swift */; };
 		247A900E2AFB9844007F0805 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A900D2AFB9844007F0805 /* Coordinator.swift */; };
 		247A90102AFB984C007F0805 /* ParentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A900F2AFB984C007F0805 /* ParentCoordinator.swift */; };
 		247A90132AFB987C007F0805 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90122AFB987C007F0805 /* Router.swift */; };
@@ -65,6 +71,12 @@
 /* Begin PBXFileReference section */
 		246100F82AFBE4F4000E1295 /* CharacterRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRepositoryImp.swift; sourceTree = "<group>"; };
 		246100FA2AFBE5B4000E1295 /* ResultsCharacterDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResultsCharacterDTO+Mapping.swift"; sourceTree = "<group>"; };
+		246100FD2AFC0C1C000E1295 /* LoadCharacterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCharacterUseCase.swift; sourceTree = "<group>"; };
+		246101012AFC0DD7000E1295 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
+		246101032AFC0E36000E1295 /* ItemCharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCharacterViewModel.swift; sourceTree = "<group>"; };
+		246101052AFC0ED6000E1295 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		246101072AFC0F4A000E1295 /* StateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateController.swift; sourceTree = "<group>"; };
+		246101092AFC1C12000E1295 /* UITableViewController+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+ext.swift"; sourceTree = "<group>"; };
 		247A900D2AFB9844007F0805 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		247A900F2AFB984C007F0805 /* ParentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinator.swift; sourceTree = "<group>"; };
 		247A90122AFB987C007F0805 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -139,6 +151,68 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		246100FC2AFC0C0A000E1295 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				246100FD2AFC0C1C000E1295 /* LoadCharacterUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		246100FF2AFC0DA3000E1295 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				247A905C2AFBC20C007F0805 /* Cell */,
+				247A903D2AFBA7D4007F0805 /* CharactersViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		246101002AFC0DA9000E1295 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				246101012AFC0DD7000E1295 /* CharacterViewModel.swift */,
+				246101032AFC0E36000E1295 /* ItemCharacterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2461010B2AFC1DE1000E1295 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				24E03B6D2AE6B1CB005E78DD /* Protocol */,
+				2461010C2AFC1DF3000E1295 /* Localize */,
+				247A90682AFBDA71007F0805 /* Layer */,
+				247A90652AFBC3BE007F0805 /* Helper */,
+				24DE37A42AEAAE25007FCA1E /* Extension */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2461010C2AFC1DF3000E1295 /* Localize */ = {
+			isa = PBXGroup;
+			children = (
+				247A90712AFBDD35007F0805 /* AppLocalized.swift */,
+			);
+			path = Localize;
+			sourceTree = "<group>";
+		};
+		2461010D2AFC1ED1000E1295 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				24E03B552AE6AB03005E78DD /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		2461010E2AFC1EDD000E1295 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				24E03B532AE6AB03005E78DD /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		247A90112AFB9873007F0805 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,12 +231,12 @@
 			path = AppComposition;
 			sourceTree = "<group>";
 		};
-		247A90192AFB99C0007F0805 /* AuthService */ = {
+		247A90192AFB99C0007F0805 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				247A901A2AFB99C9007F0805 /* Auth.swift */,
 			);
-			path = AuthService;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		247A901D2AFB9A3F007F0805 /* Login */ = {
@@ -242,8 +316,8 @@
 		247A90362AFB9EA0007F0805 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				247A905C2AFBC20C007F0805 /* Cell */,
-				247A903D2AFBA7D4007F0805 /* CharactersViewController.swift */,
+				246100FF2AFC0DA3000E1295 /* View */,
+				246101002AFC0DA9000E1295 /* ViewModel */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -287,7 +361,7 @@
 		247A904D2AFBADA9007F0805 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				247A90192AFB99C0007F0805 /* AuthService */,
+				247A90192AFB99C0007F0805 /* Auth */,
 				247A904E2AFBB60D007F0805 /* Network */,
 			);
 			path = Service;
@@ -358,6 +432,8 @@
 		247A90692AFBDA75007F0805 /* Present */ = {
 			isa = PBXGroup;
 			children = (
+				246101072AFC0F4A000E1295 /* StateController.swift */,
+				246101052AFC0ED6000E1295 /* BaseViewModel.swift */,
 			);
 			path = Present;
 			sourceTree = "<group>";
@@ -423,6 +499,7 @@
 		247A90882AFBE2A8007F0805 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				246100FC2AFC0C0A000E1295 /* UseCases */,
 				247A90892AFBE2B1007F0805 /* RepositoriesInterfaces */,
 			);
 			path = Domain;
@@ -441,6 +518,7 @@
 			children = (
 				247A90632AFBC342007F0805 /* UIView+ext.swift */,
 				247A906F2AFBDC9E007F0805 /* String+ext.swift */,
+				246101092AFC1C12000E1295 /* UITableViewController+ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -448,6 +526,7 @@
 		24DE37B22AEABF1F007FCA1E /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				2461010D2AFC1ED1000E1295 /* Launch */,
 				247A901D2AFB9A3F007F0805 /* Login */,
 				24DE37B32AEABF2B007FCA1E /* MainTabBar */,
 				247A90342AFB9E69007F0805 /* Characters */,
@@ -484,14 +563,11 @@
 		24E03B492AE6AB02005E78DD /* Rick&Morty */ = {
 			isa = PBXGroup;
 			children = (
-				247A90682AFBDA71007F0805 /* Layer */,
 				24E03B5E2AE6AB67005E78DD /* Application */,
-				24E03B6D2AE6B1CB005E78DD /* Protocol */,
+				2461010B2AFC1DE1000E1295 /* Core */,
 				24DE37B22AEABF1F007FCA1E /* Flow */,
 				247A904D2AFBADA9007F0805 /* Service */,
-				24DE37A42AEAAE25007FCA1E /* Extension */,
 				24E03B5F2AE6AB6F005E78DD /* Recources */,
-				247A90712AFBDD35007F0805 /* AppLocalized.swift */,
 			);
 			path = "Rick&Morty";
 			sourceTree = "<group>";
@@ -509,9 +585,7 @@
 		24E03B5F2AE6AB6F005E78DD /* Recources */ = {
 			isa = PBXGroup;
 			children = (
-				247A90652AFBC3BE007F0805 /* Helper */,
-				24E03B532AE6AB03005E78DD /* Assets.xcassets */,
-				24E03B552AE6AB03005E78DD /* LaunchScreen.storyboard */,
+				2461010E2AFC1EDD000E1295 /* Assets */,
 				24E03B582AE6AB03005E78DD /* Info.plist */,
 			);
 			path = Recources;
@@ -607,6 +681,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				246100FB2AFBE5B4000E1295 /* ResultsCharacterDTO+Mapping.swift in Sources */,
+				246101062AFC0ED6000E1295 /* BaseViewModel.swift in Sources */,
 				247A90762AFBDE07007F0805 /* Specie.swift in Sources */,
 				247A90782AFBE02C007F0805 /* Origin.swift in Sources */,
 				247A902C2AFB9BDC007F0805 /* MainTabBarController.swift in Sources */,
@@ -616,9 +691,12 @@
 				247A90102AFB984C007F0805 /* ParentCoordinator.swift in Sources */,
 				247A90702AFBDC9E007F0805 /* String+ext.swift in Sources */,
 				247A90132AFB987C007F0805 /* Router.swift in Sources */,
+				2461010A2AFC1C12000E1295 /* UITableViewController+ext.swift in Sources */,
 				247A903A2AFBA698007F0805 /* CharactersFactory.swift in Sources */,
+				246100FE2AFC0C1C000E1295 /* LoadCharacterUseCase.swift in Sources */,
 				247A90322AFB9CA9007F0805 /* ItemTabBarFactory.swift in Sources */,
 				247A907E2AFBE0E0007F0805 /* ResultsCharacterDTO.swift in Sources */,
+				246101022AFC0DD7000E1295 /* CharacterViewModel.swift in Sources */,
 				247A90852AFBE1B8007F0805 /* LocationDTO.swift in Sources */,
 				24E03B4B2AE6AB02005E78DD /* AppDelegate.swift in Sources */,
 				247A90802AFBE10E007F0805 /* CharacterDTO.swift in Sources */,
@@ -631,6 +709,8 @@
 				247A90272AFB9B3C007F0805 /* LoginViewModel.swift in Sources */,
 				247A901B2AFB99C9007F0805 /* Auth.swift in Sources */,
 				247A90252AFB9B2B007F0805 /* LoginViewController.swift in Sources */,
+				246101042AFC0E36000E1295 /* ItemCharacterViewModel.swift in Sources */,
+				246101082AFC0F4A000E1295 /* StateController.swift in Sources */,
 				247A90742AFBDDEF007F0805 /* StatusCharacter.swift in Sources */,
 				247A903C2AFBA6A2007F0805 /* CharactersCoordinator.swift in Sources */,
 				24E03B4D2AE6AB02005E78DD /* SceneDelegate.swift in Sources */,
