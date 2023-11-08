@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		246100F92AFBE4F4000E1295 /* CharacterRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246100F82AFBE4F4000E1295 /* CharacterRepositoryImp.swift */; };
+		246100FB2AFBE5B4000E1295 /* ResultsCharacterDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246100FA2AFBE5B4000E1295 /* ResultsCharacterDTO+Mapping.swift */; };
 		247A900E2AFB9844007F0805 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A900D2AFB9844007F0805 /* Coordinator.swift */; };
 		247A90102AFB984C007F0805 /* ParentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A900F2AFB984C007F0805 /* ParentCoordinator.swift */; };
 		247A90132AFB987C007F0805 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90122AFB987C007F0805 /* Router.swift */; };
@@ -39,6 +41,20 @@
 		247A90622AFBC28E007F0805 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90612AFBC28E007F0805 /* Reusable.swift */; };
 		247A90642AFBC342007F0805 /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90632AFBC342007F0805 /* UIView+ext.swift */; };
 		247A90672AFBC3CA007F0805 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90662AFBC3CA007F0805 /* Resources.swift */; };
+		247A906E2AFBDAA5007F0805 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A906D2AFBDAA5007F0805 /* Character.swift */; };
+		247A90702AFBDC9E007F0805 /* String+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A906F2AFBDC9E007F0805 /* String+ext.swift */; };
+		247A90722AFBDD35007F0805 /* AppLocalized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90712AFBDD35007F0805 /* AppLocalized.swift */; };
+		247A90742AFBDDEF007F0805 /* StatusCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90732AFBDDEF007F0805 /* StatusCharacter.swift */; };
+		247A90762AFBDE07007F0805 /* Specie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90752AFBDE07007F0805 /* Specie.swift */; };
+		247A90782AFBE02C007F0805 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90772AFBE02C007F0805 /* Origin.swift */; };
+		247A907A2AFBE076007F0805 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90792AFBE076007F0805 /* Location.swift */; };
+		247A907E2AFBE0E0007F0805 /* ResultsCharacterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A907D2AFBE0E0007F0805 /* ResultsCharacterDTO.swift */; };
+		247A90802AFBE10E007F0805 /* CharacterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A907F2AFBE10E007F0805 /* CharacterDTO.swift */; };
+		247A90832AFBE199007F0805 /* OriginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90822AFBE199007F0805 /* OriginDTO.swift */; };
+		247A90852AFBE1B8007F0805 /* LocationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90842AFBE1B8007F0805 /* LocationDTO.swift */; };
+		247A90872AFBE1FD007F0805 /* InfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90862AFBE1FD007F0805 /* InfoDTO.swift */; };
+		247A908B2AFBE2CE007F0805 /* CharactersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A908A2AFBE2CE007F0805 /* CharactersRepository.swift */; };
+		247A908D2AFBE350007F0805 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A908C2AFBE350007F0805 /* Info.swift */; };
 		24E03B4B2AE6AB02005E78DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B4A2AE6AB02005E78DD /* AppDelegate.swift */; };
 		24E03B4D2AE6AB02005E78DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B4C2AE6AB02005E78DD /* SceneDelegate.swift */; };
 		24E03B542AE6AB03005E78DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E03B532AE6AB03005E78DD /* Assets.xcassets */; };
@@ -47,6 +63,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		246100F82AFBE4F4000E1295 /* CharacterRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRepositoryImp.swift; sourceTree = "<group>"; };
+		246100FA2AFBE5B4000E1295 /* ResultsCharacterDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResultsCharacterDTO+Mapping.swift"; sourceTree = "<group>"; };
 		247A900D2AFB9844007F0805 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		247A900F2AFB984C007F0805 /* ParentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinator.swift; sourceTree = "<group>"; };
 		247A90122AFB987C007F0805 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -79,6 +97,20 @@
 		247A90612AFBC28E007F0805 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		247A90632AFBC342007F0805 /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
 		247A90662AFBC3CA007F0805 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		247A906D2AFBDAA5007F0805 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		247A906F2AFBDC9E007F0805 /* String+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ext.swift"; sourceTree = "<group>"; };
+		247A90712AFBDD35007F0805 /* AppLocalized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalized.swift; sourceTree = "<group>"; };
+		247A90732AFBDDEF007F0805 /* StatusCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCharacter.swift; sourceTree = "<group>"; };
+		247A90752AFBDE07007F0805 /* Specie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specie.swift; sourceTree = "<group>"; };
+		247A90772AFBE02C007F0805 /* Origin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
+		247A90792AFBE076007F0805 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		247A907D2AFBE0E0007F0805 /* ResultsCharacterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCharacterDTO.swift; sourceTree = "<group>"; };
+		247A907F2AFBE10E007F0805 /* CharacterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDTO.swift; sourceTree = "<group>"; };
+		247A90822AFBE199007F0805 /* OriginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginDTO.swift; sourceTree = "<group>"; };
+		247A90842AFBE1B8007F0805 /* LocationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDTO.swift; sourceTree = "<group>"; };
+		247A90862AFBE1FD007F0805 /* InfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDTO.swift; sourceTree = "<group>"; };
+		247A908A2AFBE2CE007F0805 /* CharactersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRepository.swift; sourceTree = "<group>"; };
+		247A908C2AFBE350007F0805 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		24E03B472AE6AB02005E78DD /* Rick&Morty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick&Morty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E03B4A2AE6AB02005E78DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24E03B4C2AE6AB02005E78DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +131,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		246100F72AFBE4CF000E1295 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				246100F82AFBE4F4000E1295 /* CharacterRepositoryImp.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		247A90112AFB9873007F0805 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +222,8 @@
 		247A90342AFB9E69007F0805 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				247A90882AFBE2A8007F0805 /* Domain */,
+				247A907B2AFBE0C6007F0805 /* Data */,
 				247A90362AFB9EA0007F0805 /* Scene */,
 				247A90352AFB9E9A007F0805 /* Composition */,
 			);
@@ -303,10 +345,102 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		247A90682AFBDA71007F0805 /* Layer */ = {
+			isa = PBXGroup;
+			children = (
+				247A90692AFBDA75007F0805 /* Present */,
+				247A906A2AFBDA80007F0805 /* Domain */,
+				247A906B2AFBDA85007F0805 /* Data */,
+			);
+			path = Layer;
+			sourceTree = "<group>";
+		};
+		247A90692AFBDA75007F0805 /* Present */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Present;
+			sourceTree = "<group>";
+		};
+		247A906A2AFBDA80007F0805 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				247A906C2AFBDA93007F0805 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		247A906B2AFBDA85007F0805 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				247A90812AFBE188007F0805 /* DTO */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		247A906C2AFBDA93007F0805 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				247A906D2AFBDAA5007F0805 /* Character.swift */,
+				247A90732AFBDDEF007F0805 /* StatusCharacter.swift */,
+				247A90752AFBDE07007F0805 /* Specie.swift */,
+				247A90772AFBE02C007F0805 /* Origin.swift */,
+				247A90792AFBE076007F0805 /* Location.swift */,
+				247A908C2AFBE350007F0805 /* Info.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		247A907B2AFBE0C6007F0805 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				246100F72AFBE4CF000E1295 /* Repositories */,
+				247A907C2AFBE0CD007F0805 /* DTO */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		247A907C2AFBE0CD007F0805 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				247A907D2AFBE0E0007F0805 /* ResultsCharacterDTO.swift */,
+				247A907F2AFBE10E007F0805 /* CharacterDTO.swift */,
+				246100FA2AFBE5B4000E1295 /* ResultsCharacterDTO+Mapping.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		247A90812AFBE188007F0805 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				247A90822AFBE199007F0805 /* OriginDTO.swift */,
+				247A90842AFBE1B8007F0805 /* LocationDTO.swift */,
+				247A90862AFBE1FD007F0805 /* InfoDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		247A90882AFBE2A8007F0805 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				247A90892AFBE2B1007F0805 /* RepositoriesInterfaces */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		247A90892AFBE2B1007F0805 /* RepositoriesInterfaces */ = {
+			isa = PBXGroup;
+			children = (
+				247A908A2AFBE2CE007F0805 /* CharactersRepository.swift */,
+			);
+			path = RepositoriesInterfaces;
+			sourceTree = "<group>";
+		};
 		24DE37A42AEAAE25007FCA1E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				247A90632AFBC342007F0805 /* UIView+ext.swift */,
+				247A906F2AFBDC9E007F0805 /* String+ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -350,12 +484,14 @@
 		24E03B492AE6AB02005E78DD /* Rick&Morty */ = {
 			isa = PBXGroup;
 			children = (
+				247A90682AFBDA71007F0805 /* Layer */,
 				24E03B5E2AE6AB67005E78DD /* Application */,
 				24E03B6D2AE6B1CB005E78DD /* Protocol */,
 				24DE37B22AEABF1F007FCA1E /* Flow */,
 				247A904D2AFBADA9007F0805 /* Service */,
 				24DE37A42AEAAE25007FCA1E /* Extension */,
 				24E03B5F2AE6AB6F005E78DD /* Recources */,
+				247A90712AFBDD35007F0805 /* AppLocalized.swift */,
 			);
 			path = "Rick&Morty";
 			sourceTree = "<group>";
@@ -470,16 +606,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				246100FB2AFBE5B4000E1295 /* ResultsCharacterDTO+Mapping.swift in Sources */,
+				247A90762AFBDE07007F0805 /* Specie.swift in Sources */,
+				247A90782AFBE02C007F0805 /* Origin.swift in Sources */,
 				247A902C2AFB9BDC007F0805 /* MainTabBarController.swift in Sources */,
 				247A90552AFBB6A0007F0805 /* NetworkError.swift in Sources */,
 				247A90532AFBB661007F0805 /* Endpoint.swift in Sources */,
 				247A90572AFBB765007F0805 /* Network.swift in Sources */,
 				247A90102AFB984C007F0805 /* ParentCoordinator.swift in Sources */,
+				247A90702AFBDC9E007F0805 /* String+ext.swift in Sources */,
 				247A90132AFB987C007F0805 /* Router.swift in Sources */,
 				247A903A2AFBA698007F0805 /* CharactersFactory.swift in Sources */,
 				247A90322AFB9CA9007F0805 /* ItemTabBarFactory.swift in Sources */,
+				247A907E2AFBE0E0007F0805 /* ResultsCharacterDTO.swift in Sources */,
+				247A90852AFBE1B8007F0805 /* LocationDTO.swift in Sources */,
 				24E03B4B2AE6AB02005E78DD /* AppDelegate.swift in Sources */,
+				247A90802AFBE10E007F0805 /* CharacterDTO.swift in Sources */,
 				247A90302AFB9C9C007F0805 /* MainTabBarCoordinator.swift in Sources */,
+				247A90722AFBDD35007F0805 /* AppLocalized.swift in Sources */,
 				247A90642AFBC342007F0805 /* UIView+ext.swift in Sources */,
 				247A90402AFBA880007F0805 /* SettingCoordinator.swift in Sources */,
 				24E03B712AE6B2A3005E78DD /* AppCoordinator.swift in Sources */,
@@ -487,6 +631,7 @@
 				247A90272AFB9B3C007F0805 /* LoginViewModel.swift in Sources */,
 				247A901B2AFB99C9007F0805 /* Auth.swift in Sources */,
 				247A90252AFB9B2B007F0805 /* LoginViewController.swift in Sources */,
+				247A90742AFBDDEF007F0805 /* StatusCharacter.swift in Sources */,
 				247A903C2AFBA6A2007F0805 /* CharactersCoordinator.swift in Sources */,
 				24E03B4D2AE6AB02005E78DD /* SceneDelegate.swift in Sources */,
 				247A90462AFBA98B007F0805 /* SettingsViewController.swift in Sources */,
@@ -496,11 +641,18 @@
 				247A90672AFBC3CA007F0805 /* Resources.swift in Sources */,
 				247A90162AFB9975007F0805 /* AppFactory.swift in Sources */,
 				247A904C2AFBA9EE007F0805 /* ItemSettingViewModel.swift in Sources */,
+				247A908D2AFBE350007F0805 /* Info.swift in Sources */,
 				247A903E2AFBA7D4007F0805 /* CharactersViewController.swift in Sources */,
+				247A906E2AFBDAA5007F0805 /* Character.swift in Sources */,
 				247A904A2AFBA9DC007F0805 /* SettingsViewNavigation.swift in Sources */,
+				247A908B2AFBE2CE007F0805 /* CharactersRepository.swift in Sources */,
+				247A907A2AFBE076007F0805 /* Location.swift in Sources */,
 				247A900E2AFB9844007F0805 /* Coordinator.swift in Sources */,
 				247A90212AFB9AE4007F0805 /* LoginFactory.swift in Sources */,
 				247A902E2AFB9C76007F0805 /* MainTabBarFactory.swift in Sources */,
+				247A90832AFBE199007F0805 /* OriginDTO.swift in Sources */,
+				246100F92AFBE4F4000E1295 /* CharacterRepositoryImp.swift in Sources */,
+				247A90872AFBE1FD007F0805 /* InfoDTO.swift in Sources */,
 				247A90182AFB9989007F0805 /* AppDIContainer.swift in Sources */,
 				247A905B2AFBB831007F0805 /* NetworkService.swift in Sources */,
 				247A90422AFBA887007F0805 /* SettingsFactory.swift in Sources */,
