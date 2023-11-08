@@ -6,6 +6,9 @@
 //
 
 struct AppLocalized {
+    static let error = "Ошибка"
+    static let okButton = "OK"
+    
     static let statusAlive = "Status: ❤️"
     static let statusDead = "Status: ☠️"
     static let statusUnknown = "Status: ❔"

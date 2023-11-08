@@ -18,7 +18,9 @@ final class CharacterViewModelImp: CharacterViewModel {
    
     var state: PassthroughSubject<StateController, Never>
     
-    var lastPage: Bool = false
+    var lastPage: Bool {
+        lastPageValidationUseCase.lastpage
+    }
     
     var itemCharacterCount: Int {
         characters.count
@@ -26,13 +28,16 @@ final class CharacterViewModelImp: CharacterViewModel {
     
     private var characters: [Character] = []
     private let loadCharactersUseCase: LoadCharacterUseCase
+    private var lastPageValidationUseCase: LastPageValidationUseCase
     
     init(
         loadCharactersUseCase: LoadCharacterUseCase,
-        state: PassthroughSubject<StateController, Never>
+        state: PassthroughSubject<StateController, Never>,
+        lastPageValidationUseCase: LastPageValidationUseCase
     ) {
         self.loadCharactersUseCase = loadCharactersUseCase
         self.state = state
+        self.lastPageValidationUseCase = lastPageValidationUseCase
     }
 
     func viewDidLoad() {
@@ -43,9 +48,8 @@ final class CharacterViewModelImp: CharacterViewModel {
     }
     
     func getItemMenuViewModel(row: Int) -> ItemCharacterViewModel {
-        let character = characters[row]
-        let itemCharacterViewModel = ItemCharacterViewModel(character: character)
-        return itemCharacterViewModel
+        checkAndLoadMoreCharacters(row: row)
+        return makeItemCharacterViewModel(row: row)
     }
     
     func getUrlList(row: Int) -> String {
@@ -61,10 +65,23 @@ final class CharacterViewModelImp: CharacterViewModel {
     private func updateStateUI(resultUseCase: Result<[Character], Error>) {
         switch resultUseCase {
         case .success(let char):
+            lastPageValidationUseCase.updateLastPage(itemsCount: char.count)
             characters.append(contentsOf: char)
             state.send(.success)
         case .failure(let error):
             state.send(.fail(error: error.localizedDescription))
         }
+    }
+    
+    private func makeItemCharacterViewModel(row: Int) -> ItemCharacterViewModel {
+        let character = characters[row]
+        return ItemCharacterViewModel(character: character)
+    }
+    
+    private func checkAndLoadMoreCharacters(row: Int) {
+        lastPageValidationUseCase.checkAndLoadMoreItems(
+            row: row,
+            actualItems: characters.count,
+            action: viewDidLoad)
     }
 }

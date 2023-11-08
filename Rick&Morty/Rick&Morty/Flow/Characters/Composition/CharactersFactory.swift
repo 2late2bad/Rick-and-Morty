@@ -23,7 +23,11 @@ struct CharactersFactoryImp: CharactersFactory {
         let network = NetworkService()
         let characterRepository = CharacterRepositoryImp(networkService: network)
         let loadCharactersUseCase = LoadCharacterUseCaseImp(characterRepository: characterRepository, url: urlList)
-        let viewModel = CharacterViewModelImp(loadCharactersUseCase: loadCharactersUseCase, state: state)
+        let lastPageValidationUseCase = LastPageValidationUseCaseImp()
+        let viewModel = CharacterViewModelImp(
+            loadCharactersUseCase: loadCharactersUseCase,
+            state: state,
+            lastPageValidationUseCase: lastPageValidationUseCase)
         let controller = CharactersViewController(viewModel: viewModel)
         controller.navigationItem.title = "Персонажи"
         return controller

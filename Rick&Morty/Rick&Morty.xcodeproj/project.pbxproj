@@ -15,6 +15,8 @@
 		246101062AFC0ED6000E1295 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101052AFC0ED6000E1295 /* BaseViewModel.swift */; };
 		246101082AFC0F4A000E1295 /* StateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101072AFC0F4A000E1295 /* StateController.swift */; };
 		2461010A2AFC1C12000E1295 /* UITableViewController+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101092AFC1C12000E1295 /* UITableViewController+ext.swift */; };
+		246101102AFC2524000E1295 /* LastPageValidationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2461010F2AFC2524000E1295 /* LastPageValidationUseCase.swift */; };
+		246101132AFC4451000E1295 /* MessageDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101122AFC4451000E1295 /* MessageDisplayable.swift */; };
 		247A900E2AFB9844007F0805 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A900D2AFB9844007F0805 /* Coordinator.swift */; };
 		247A90102AFB984C007F0805 /* ParentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A900F2AFB984C007F0805 /* ParentCoordinator.swift */; };
 		247A90132AFB987C007F0805 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90122AFB987C007F0805 /* Router.swift */; };
@@ -77,6 +79,8 @@
 		246101052AFC0ED6000E1295 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		246101072AFC0F4A000E1295 /* StateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateController.swift; sourceTree = "<group>"; };
 		246101092AFC1C12000E1295 /* UITableViewController+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+ext.swift"; sourceTree = "<group>"; };
+		2461010F2AFC2524000E1295 /* LastPageValidationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPageValidationUseCase.swift; sourceTree = "<group>"; };
+		246101122AFC4451000E1295 /* MessageDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDisplayable.swift; sourceTree = "<group>"; };
 		247A900D2AFB9844007F0805 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		247A900F2AFB984C007F0805 /* ParentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinator.swift; sourceTree = "<group>"; };
 		247A90122AFB987C007F0805 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				246100FD2AFC0C1C000E1295 /* LoadCharacterUseCase.swift */,
+				2461010F2AFC2524000E1295 /* LastPageValidationUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -211,6 +216,14 @@
 				24E03B532AE6AB03005E78DD /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		246101112AFC4440000E1295 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				246101122AFC4451000E1295 /* MessageDisplayable.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		247A90112AFB9873007F0805 /* Router */ = {
@@ -596,6 +609,7 @@
 			children = (
 				24E03B722AE6B7DC005E78DD /* Coordinator */,
 				247A90112AFB9873007F0805 /* Router */,
+				246101112AFC4440000E1295 /* Components */,
 				247A90612AFBC28E007F0805 /* Reusable.swift */,
 			);
 			path = Protocol;
@@ -683,6 +697,7 @@
 				246100FB2AFBE5B4000E1295 /* ResultsCharacterDTO+Mapping.swift in Sources */,
 				246101062AFC0ED6000E1295 /* BaseViewModel.swift in Sources */,
 				247A90762AFBDE07007F0805 /* Specie.swift in Sources */,
+				246101102AFC2524000E1295 /* LastPageValidationUseCase.swift in Sources */,
 				247A90782AFBE02C007F0805 /* Origin.swift in Sources */,
 				247A902C2AFB9BDC007F0805 /* MainTabBarController.swift in Sources */,
 				247A90552AFBB6A0007F0805 /* NetworkError.swift in Sources */,
@@ -710,6 +725,7 @@
 				247A901B2AFB99C9007F0805 /* Auth.swift in Sources */,
 				247A90252AFB9B2B007F0805 /* LoginViewController.swift in Sources */,
 				246101042AFC0E36000E1295 /* ItemCharacterViewModel.swift in Sources */,
+				246101132AFC4451000E1295 /* MessageDisplayable.swift in Sources */,
 				246101082AFC0F4A000E1295 /* StateController.swift in Sources */,
 				247A90742AFBDDEF007F0805 /* StatusCharacter.swift in Sources */,
 				247A903C2AFBA6A2007F0805 /* CharactersCoordinator.swift in Sources */,
