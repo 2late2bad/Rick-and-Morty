@@ -16,6 +16,7 @@ protocol CharactersFactory {
 
 struct CharactersFactoryImp: CharactersFactory {
     
+    let appDIContainer: AppContainer
     let urlList: String
     
     func makeCharactersViewController(coordinator: CharactersViewControllerCoordinator) -> UIViewController {
@@ -27,7 +28,7 @@ struct CharactersFactoryImp: CharactersFactory {
         let viewModel = CharacterViewModelImp(
             loadCharactersUseCase: loadCharactersUseCase,
             state: state,
-            lastPageValidationUseCase: lastPageValidationUseCase)
+            lastPageValidationUseCase: lastPageValidationUseCase, imageDataUseCase: appDIContainer.getDataImageUseCase())
         let controller = CharactersViewController(viewModel: viewModel)
         controller.navigationItem.title = "Персонажи"
         return controller

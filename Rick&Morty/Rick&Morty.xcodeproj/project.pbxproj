@@ -17,6 +17,13 @@
 		2461010A2AFC1C12000E1295 /* UITableViewController+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101092AFC1C12000E1295 /* UITableViewController+ext.swift */; };
 		246101102AFC2524000E1295 /* LastPageValidationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2461010F2AFC2524000E1295 /* LastPageValidationUseCase.swift */; };
 		246101132AFC4451000E1295 /* MessageDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101122AFC4451000E1295 /* MessageDisplayable.swift */; };
+		246101172AFC475A000E1295 /* RemoteImageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101162AFC475A000E1295 /* RemoteImageDataService.swift */; };
+		2461011B2AFC47C9000E1295 /* NetworkService+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2461011A2AFC47C9000E1295 /* NetworkService+ext.swift */; };
+		2461011E2AFC48D6000E1295 /* LocalDataImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2461011D2AFC48D6000E1295 /* LocalDataImageService.swift */; };
+		246101212AFC49F0000E1295 /* ImageDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101202AFC49F0000E1295 /* ImageDataRepository.swift */; };
+		246101242AFC4A8F000E1295 /* ImageDataRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101232AFC4A8F000E1295 /* ImageDataRepositoryImp.swift */; };
+		246101272AFC4BAC000E1295 /* ImageDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101262AFC4BAC000E1295 /* ImageDataUseCase.swift */; };
+		246101292AFC54A6000E1295 /* UIImageView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246101282AFC54A6000E1295 /* UIImageView+ext.swift */; };
 		247A900E2AFB9844007F0805 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A900D2AFB9844007F0805 /* Coordinator.swift */; };
 		247A90102AFB984C007F0805 /* ParentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A900F2AFB984C007F0805 /* ParentCoordinator.swift */; };
 		247A90132AFB987C007F0805 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90122AFB987C007F0805 /* Router.swift */; };
@@ -81,6 +88,13 @@
 		246101092AFC1C12000E1295 /* UITableViewController+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+ext.swift"; sourceTree = "<group>"; };
 		2461010F2AFC2524000E1295 /* LastPageValidationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPageValidationUseCase.swift; sourceTree = "<group>"; };
 		246101122AFC4451000E1295 /* MessageDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDisplayable.swift; sourceTree = "<group>"; };
+		246101162AFC475A000E1295 /* RemoteImageDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageDataService.swift; sourceTree = "<group>"; };
+		2461011A2AFC47C9000E1295 /* NetworkService+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+ext.swift"; sourceTree = "<group>"; };
+		2461011D2AFC48D6000E1295 /* LocalDataImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataImageService.swift; sourceTree = "<group>"; };
+		246101202AFC49F0000E1295 /* ImageDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataRepository.swift; sourceTree = "<group>"; };
+		246101232AFC4A8F000E1295 /* ImageDataRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataRepositoryImp.swift; sourceTree = "<group>"; };
+		246101262AFC4BAC000E1295 /* ImageDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataUseCase.swift; sourceTree = "<group>"; };
+		246101282AFC54A6000E1295 /* UIImageView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ext.swift"; sourceTree = "<group>"; };
 		247A900D2AFB9844007F0805 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		247A900F2AFB984C007F0805 /* ParentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinator.swift; sourceTree = "<group>"; };
 		247A90122AFB987C007F0805 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -224,6 +238,38 @@
 				246101122AFC4451000E1295 /* MessageDisplayable.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		2461011C2AFC48BD000E1295 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				2461011D2AFC48D6000E1295 /* LocalDataImageService.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		2461011F2AFC49DB000E1295 /* InterfaceRepository */ = {
+			isa = PBXGroup;
+			children = (
+				246101202AFC49F0000E1295 /* ImageDataRepository.swift */,
+			);
+			path = InterfaceRepository;
+			sourceTree = "<group>";
+		};
+		246101222AFC4A70000E1295 /* RepositoriesImp */ = {
+			isa = PBXGroup;
+			children = (
+				246101232AFC4A8F000E1295 /* ImageDataRepositoryImp.swift */,
+			);
+			path = RepositoriesImp;
+			sourceTree = "<group>";
+		};
+		246101252AFC4B97000E1295 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				246101262AFC4BAC000E1295 /* ImageDataUseCase.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 		247A90112AFB9873007F0805 /* Router */ = {
@@ -376,6 +422,7 @@
 			children = (
 				247A90192AFB99C0007F0805 /* Auth */,
 				247A904E2AFBB60D007F0805 /* Network */,
+				2461011C2AFC48BD000E1295 /* LocalStorage */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -394,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				247A90562AFBB765007F0805 /* Network.swift */,
+				246101162AFC475A000E1295 /* RemoteImageDataService.swift */,
 				247A90542AFBB6A0007F0805 /* NetworkError.swift */,
 				247A90582AFBB7B5007F0805 /* StatusResponse.swift */,
 			);
@@ -404,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				247A905A2AFBB831007F0805 /* NetworkService.swift */,
+				2461011A2AFC47C9000E1295 /* NetworkService+ext.swift */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -454,6 +503,8 @@
 		247A906A2AFBDA80007F0805 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				246101252AFC4B97000E1295 /* UseCases */,
+				2461011F2AFC49DB000E1295 /* InterfaceRepository */,
 				247A906C2AFBDA93007F0805 /* Entities */,
 			);
 			path = Domain;
@@ -462,6 +513,7 @@
 		247A906B2AFBDA85007F0805 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				246101222AFC4A70000E1295 /* RepositoriesImp */,
 				247A90812AFBE188007F0805 /* DTO */,
 			);
 			path = Data;
@@ -532,6 +584,7 @@
 				247A90632AFBC342007F0805 /* UIView+ext.swift */,
 				247A906F2AFBDC9E007F0805 /* String+ext.swift */,
 				246101092AFC1C12000E1295 /* UITableViewController+ext.swift */,
+				246101282AFC54A6000E1295 /* UIImageView+ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -700,6 +753,7 @@
 				246101102AFC2524000E1295 /* LastPageValidationUseCase.swift in Sources */,
 				247A90782AFBE02C007F0805 /* Origin.swift in Sources */,
 				247A902C2AFB9BDC007F0805 /* MainTabBarController.swift in Sources */,
+				2461011B2AFC47C9000E1295 /* NetworkService+ext.swift in Sources */,
 				247A90552AFBB6A0007F0805 /* NetworkError.swift in Sources */,
 				247A90532AFBB661007F0805 /* Endpoint.swift in Sources */,
 				247A90572AFBB765007F0805 /* Network.swift in Sources */,
@@ -719,6 +773,8 @@
 				247A90722AFBDD35007F0805 /* AppLocalized.swift in Sources */,
 				247A90642AFBC342007F0805 /* UIView+ext.swift in Sources */,
 				247A90402AFBA880007F0805 /* SettingCoordinator.swift in Sources */,
+				246101292AFC54A6000E1295 /* UIImageView+ext.swift in Sources */,
+				246101212AFC49F0000E1295 /* ImageDataRepository.swift in Sources */,
 				24E03B712AE6B2A3005E78DD /* AppCoordinator.swift in Sources */,
 				247A90622AFBC28E007F0805 /* Reusable.swift in Sources */,
 				247A90272AFB9B3C007F0805 /* LoginViewModel.swift in Sources */,
@@ -730,12 +786,14 @@
 				247A90742AFBDDEF007F0805 /* StatusCharacter.swift in Sources */,
 				247A903C2AFBA6A2007F0805 /* CharactersCoordinator.swift in Sources */,
 				24E03B4D2AE6AB02005E78DD /* SceneDelegate.swift in Sources */,
+				2461011E2AFC48D6000E1295 /* LocalDataImageService.swift in Sources */,
 				247A90462AFBA98B007F0805 /* SettingsViewController.swift in Sources */,
 				247A90592AFBB7B5007F0805 /* StatusResponse.swift in Sources */,
 				247A90232AFB9AF3007F0805 /* LoginCoordinator.swift in Sources */,
 				247A90602AFBC230007F0805 /* ItemCharacterTableViewCell.swift in Sources */,
 				247A90672AFBC3CA007F0805 /* Resources.swift in Sources */,
 				247A90162AFB9975007F0805 /* AppFactory.swift in Sources */,
+				246101272AFC4BAC000E1295 /* ImageDataUseCase.swift in Sources */,
 				247A904C2AFBA9EE007F0805 /* ItemSettingViewModel.swift in Sources */,
 				247A908D2AFBE350007F0805 /* Info.swift in Sources */,
 				247A903E2AFBA7D4007F0805 /* CharactersViewController.swift in Sources */,
@@ -749,8 +807,10 @@
 				247A90832AFBE199007F0805 /* OriginDTO.swift in Sources */,
 				246100F92AFBE4F4000E1295 /* CharacterRepositoryImp.swift in Sources */,
 				247A90872AFBE1FD007F0805 /* InfoDTO.swift in Sources */,
+				246101242AFC4A8F000E1295 /* ImageDataRepositoryImp.swift in Sources */,
 				247A90182AFB9989007F0805 /* AppDIContainer.swift in Sources */,
 				247A905B2AFBB831007F0805 /* NetworkService.swift in Sources */,
+				246101172AFC475A000E1295 /* RemoteImageDataService.swift in Sources */,
 				247A90422AFBA887007F0805 /* SettingsFactory.swift in Sources */,
 				247A90482AFBA9AB007F0805 /* SettingsViewModel.swift in Sources */,
 			);

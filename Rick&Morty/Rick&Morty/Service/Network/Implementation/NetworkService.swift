@@ -9,7 +9,7 @@ import Foundation
 
 struct NetworkService: Network {
     
-    private let session: URLSession
+    let session: URLSession
     
     init(session: URLSession = .shared) {
         self.session = session

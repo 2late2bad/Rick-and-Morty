@@ -5,12 +5,11 @@
 //  Created by Alexander V. on 08.11.2023.
 //
 
-struct ItemCharacterViewModel {
-    private let character: Character
-    
-    init(character: Character) {
-        self.character = character
-    }
+import Foundation
+
+struct ItemCharacterViewModel { 
+    private(set) var character: Character
+    private(set) var dataImageUseCase: ImageDataUseCase
     
     var name: String {
         character.name
@@ -22,5 +21,14 @@ struct ItemCharacterViewModel {
     
     var status: String {
         character.status?.description ?? ""
+    }
+    
+    var imageData: Data? {
+        dataImageUseCase.getDataFromCache(url: URL(string: character.urlImage ?? .empty))
+    }
+    
+    func getImageData() async -> Data? {
+        let url = URL(string: character.urlImage ?? .empty)
+        return await dataImageUseCase.getData(url: url)
     }
 }

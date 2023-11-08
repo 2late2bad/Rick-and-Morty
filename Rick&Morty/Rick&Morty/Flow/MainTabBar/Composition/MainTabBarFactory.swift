@@ -8,7 +8,8 @@
 import UIKit
 
 struct MainTabBarFactory {
-    let appDIContainer: AppDIContainer?
+    
+    let appDIContainer: AppContainer
     
     func makeMainTabBarController() -> UITabBarController {
         MainTabBarController()
@@ -22,7 +23,7 @@ struct MainTabBarFactory {
     }
     
     private func makeCharactersCoordinator() -> Coordinator {
-        let factory = CharactersFactoryImp(urlList: Endpoint.charURL)
+        let factory = CharactersFactoryImp(appDIContainer: appDIContainer, urlList: Endpoint.charURL)
         let router = RouterImp(rootViewController: UINavigationController.init())
         return CharactersCoordinator(router: router, factory: factory)
     }

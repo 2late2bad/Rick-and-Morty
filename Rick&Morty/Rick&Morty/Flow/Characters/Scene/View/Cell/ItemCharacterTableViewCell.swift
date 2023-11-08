@@ -22,7 +22,6 @@ final class ItemCharacterTableViewCell: UITableViewCell {
     private let characterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.setWidthConstraint(with: R.ViewValues.defaultHeightContainerCell)
-        imageView.image = UIImage(named: R.Images.defaultImage)
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -59,8 +58,15 @@ final class ItemCharacterTableViewCell: UITableViewCell {
         setupSelf()
     }
     
+    private var task: Task<Void, Never>?
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        task?.cancel()
     }
     
     // MARK: - Methods
@@ -68,6 +74,7 @@ final class ItemCharacterTableViewCell: UITableViewCell {
         nameLabel.text = viewModel.name
         specieLabel.text = viewModel.specie
         statusLabel.text = viewModel.status
+        setImage(viewModel: viewModel)
     }
     
     private func setupSelf() {
@@ -98,6 +105,18 @@ final class ItemCharacterTableViewCell: UITableViewCell {
             pLeft: R.ViewValues.normalPadding)
         
         [nameLabel, specieLabel, statusLabel].forEach { labelContainerStackView.addArrangedSubview($0) }
+    }
+    
+    private func setImage(viewModel: ItemCharacterViewModel) {
+        characterImageView.addDefaultImage()
+        if let data = viewModel.imageData {
+            characterImageView.setImageFromData(data: data)
+        } else {
+            task = Task {
+                let dataImage = await viewModel.getImageData()
+                characterImageView.setImageFromData(data: dataImage)
+            }
+        }
     }
 }
 
