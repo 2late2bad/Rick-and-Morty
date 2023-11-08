@@ -16,11 +16,7 @@ protocol CharactersFactory {
 struct CharactersFactoryImp: CharactersFactory {
     
     func makeCharactersViewController(coordinator: CharactersViewControllerCoordinator) -> UIViewController {
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width,
-                                 height: UIScreen.main.bounds.width / 2)
-        
-        let controller = CharactersViewController(collectionViewLayout: layout, coordinator: coordinator)
+        let controller = CharactersViewController()
         controller.navigationItem.title = "Персонажи"
         return controller
     }

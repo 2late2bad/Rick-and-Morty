@@ -35,6 +35,10 @@
 		247A90572AFBB765007F0805 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90562AFBB765007F0805 /* Network.swift */; };
 		247A90592AFBB7B5007F0805 /* StatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90582AFBB7B5007F0805 /* StatusResponse.swift */; };
 		247A905B2AFBB831007F0805 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A905A2AFBB831007F0805 /* NetworkService.swift */; };
+		247A90602AFBC230007F0805 /* ItemCharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A905F2AFBC230007F0805 /* ItemCharacterTableViewCell.swift */; };
+		247A90622AFBC28E007F0805 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90612AFBC28E007F0805 /* Reusable.swift */; };
+		247A90642AFBC342007F0805 /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90632AFBC342007F0805 /* UIView+ext.swift */; };
+		247A90672AFBC3CA007F0805 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90662AFBC3CA007F0805 /* Resources.swift */; };
 		24E03B4B2AE6AB02005E78DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B4A2AE6AB02005E78DD /* AppDelegate.swift */; };
 		24E03B4D2AE6AB02005E78DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B4C2AE6AB02005E78DD /* SceneDelegate.swift */; };
 		24E03B542AE6AB03005E78DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E03B532AE6AB03005E78DD /* Assets.xcassets */; };
@@ -71,6 +75,10 @@
 		247A90562AFBB765007F0805 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		247A90582AFBB7B5007F0805 /* StatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResponse.swift; sourceTree = "<group>"; };
 		247A905A2AFBB831007F0805 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		247A905F2AFBC230007F0805 /* ItemCharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCharacterTableViewCell.swift; sourceTree = "<group>"; };
+		247A90612AFBC28E007F0805 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		247A90632AFBC342007F0805 /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
+		247A90662AFBC3CA007F0805 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		24E03B472AE6AB02005E78DD /* Rick&Morty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick&Morty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E03B4A2AE6AB02005E78DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24E03B4C2AE6AB02005E78DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +200,7 @@
 		247A90362AFB9EA0007F0805 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				247A905C2AFBC20C007F0805 /* Cell */,
 				247A903D2AFBA7D4007F0805 /* CharactersViewController.swift */,
 			);
 			path = Scene;
@@ -278,9 +287,26 @@
 			path = Endpoint;
 			sourceTree = "<group>";
 		};
+		247A905C2AFBC20C007F0805 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				247A905F2AFBC230007F0805 /* ItemCharacterTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		247A90652AFBC3BE007F0805 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				247A90662AFBC3CA007F0805 /* Resources.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		24DE37A42AEAAE25007FCA1E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				247A90632AFBC342007F0805 /* UIView+ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -347,6 +373,7 @@
 		24E03B5F2AE6AB6F005E78DD /* Recources */ = {
 			isa = PBXGroup;
 			children = (
+				247A90652AFBC3BE007F0805 /* Helper */,
 				24E03B532AE6AB03005E78DD /* Assets.xcassets */,
 				24E03B552AE6AB03005E78DD /* LaunchScreen.storyboard */,
 				24E03B582AE6AB03005E78DD /* Info.plist */,
@@ -359,6 +386,7 @@
 			children = (
 				24E03B722AE6B7DC005E78DD /* Coordinator */,
 				247A90112AFB9873007F0805 /* Router */,
+				247A90612AFBC28E007F0805 /* Reusable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -452,8 +480,10 @@
 				247A90322AFB9CA9007F0805 /* ItemTabBarFactory.swift in Sources */,
 				24E03B4B2AE6AB02005E78DD /* AppDelegate.swift in Sources */,
 				247A90302AFB9C9C007F0805 /* MainTabBarCoordinator.swift in Sources */,
+				247A90642AFBC342007F0805 /* UIView+ext.swift in Sources */,
 				247A90402AFBA880007F0805 /* SettingCoordinator.swift in Sources */,
 				24E03B712AE6B2A3005E78DD /* AppCoordinator.swift in Sources */,
+				247A90622AFBC28E007F0805 /* Reusable.swift in Sources */,
 				247A90272AFB9B3C007F0805 /* LoginViewModel.swift in Sources */,
 				247A901B2AFB99C9007F0805 /* Auth.swift in Sources */,
 				247A90252AFB9B2B007F0805 /* LoginViewController.swift in Sources */,
@@ -462,6 +492,8 @@
 				247A90462AFBA98B007F0805 /* SettingsViewController.swift in Sources */,
 				247A90592AFBB7B5007F0805 /* StatusResponse.swift in Sources */,
 				247A90232AFB9AF3007F0805 /* LoginCoordinator.swift in Sources */,
+				247A90602AFBC230007F0805 /* ItemCharacterTableViewCell.swift in Sources */,
+				247A90672AFBC3CA007F0805 /* Resources.swift in Sources */,
 				247A90162AFB9975007F0805 /* AppFactory.swift in Sources */,
 				247A904C2AFBA9EE007F0805 /* ItemSettingViewModel.swift in Sources */,
 				247A903E2AFBA7D4007F0805 /* CharactersViewController.swift in Sources */,

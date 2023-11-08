@@ -16,12 +16,12 @@ struct MainTabBarFactory {
     
     func makeChildCoordinators(delegate: SettingsCoordinatorDelegate) -> [Coordinator] {
         [
-            makeHomeCoordinator(),
+            makeCharactersCoordinator(),
             makeSettingsCoordinator(delegate: delegate)
         ]
     }
     
-    private func makeHomeCoordinator() -> Coordinator {
+    private func makeCharactersCoordinator() -> Coordinator {
         let factory = CharactersFactoryImp()
         let router = RouterImp(rootViewController: UINavigationController.init())
         return CharactersCoordinator(router: router, factory: factory)
