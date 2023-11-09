@@ -38,6 +38,36 @@ extension UIView {
         }
     }
     
+    func fillSuperView(widthPadding: CGFloat = .zero) {
+        guard let superview = self.superview else { return }
+        setConstraints(
+            top: superview.topAnchor,
+            right: superview.rightAnchor,
+            bottom: superview.bottomAnchor,
+            left: superview.leftAnchor,
+            pTop: widthPadding,
+            pRight: widthPadding,
+            pBottom: widthPadding,
+            pLeft: widthPadding)
+    }
+    
+    func centerY() {
+        guard let superview = self.superview else { return }
+        translatesAutoresizingMaskIntoConstraints = false
+        centerYAnchor.constraint(equalTo: superview.centerYAnchor).isActive = true
+    }
+    
+    func centerX() {
+        guard let superview = self.superview else { return }
+        translatesAutoresizingMaskIntoConstraints = false
+        centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
+    }
+    
+    func centerXY() {
+        centerY()
+        centerX()
+    }
+    
     func setHeightConstraint(with height: CGFloat) {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: height).isActive = true

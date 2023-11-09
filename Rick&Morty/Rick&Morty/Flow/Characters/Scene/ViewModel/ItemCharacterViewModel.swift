@@ -24,7 +24,7 @@ struct ItemCharacterViewModel {
     }
     
     var imageData: Data? {
-        dataImageUseCase.getDataFromCache(url: URL(string: character.urlImage ?? .empty))
+        dataImageUseCase.getDataFromCache(url: character.urlImage)
     }
     
     func getImageData() async -> Data? {

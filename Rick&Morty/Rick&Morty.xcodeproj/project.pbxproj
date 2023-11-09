@@ -73,6 +73,12 @@
 		248368952AFCECCD00B9AC9A /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368942AFCECCD00B9AC9A /* CharacterDetailViewController.swift */; };
 		248368972AFCED0300B9AC9A /* CharacterDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368962AFCED0300B9AC9A /* CharacterDetailCoordinator.swift */; };
 		248368992AFCED3700B9AC9A /* CharacterDetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368982AFCED3700B9AC9A /* CharacterDetailFactory.swift */; };
+		2483689E2AFCF84900B9AC9A /* CharacterDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483689D2AFCF84900B9AC9A /* CharacterDetailRepository.swift */; };
+		248368A12AFD119900B9AC9A /* CharacterDetailRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368A02AFD119900B9AC9A /* CharacterDetailRepositoryImp.swift */; };
+		248368A42AFD12AE00B9AC9A /* CharacterDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368A32AFD12AE00B9AC9A /* CharacterDTO+Mapping.swift */; };
+		248368A72AFD15C900B9AC9A /* LoadCharacterDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368A62AFD15C900B9AC9A /* LoadCharacterDetailUseCase.swift */; };
+		248368AB2AFD19E300B9AC9A /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368AA2AFD19E300B9AC9A /* CharacterDetailViewModel.swift */; };
+		248368AD2AFD2D1C00B9AC9A /* SpinnerDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368AC2AFD2D1C00B9AC9A /* SpinnerDisplayable.swift */; };
 		24E03B4B2AE6AB02005E78DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B4A2AE6AB02005E78DD /* AppDelegate.swift */; };
 		24E03B4D2AE6AB02005E78DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B4C2AE6AB02005E78DD /* SceneDelegate.swift */; };
 		24E03B542AE6AB03005E78DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E03B532AE6AB03005E78DD /* Assets.xcassets */; };
@@ -147,6 +153,12 @@
 		248368942AFCECCD00B9AC9A /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		248368962AFCED0300B9AC9A /* CharacterDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailCoordinator.swift; sourceTree = "<group>"; };
 		248368982AFCED3700B9AC9A /* CharacterDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailFactory.swift; sourceTree = "<group>"; };
+		2483689D2AFCF84900B9AC9A /* CharacterDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailRepository.swift; sourceTree = "<group>"; };
+		248368A02AFD119900B9AC9A /* CharacterDetailRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailRepositoryImp.swift; sourceTree = "<group>"; };
+		248368A32AFD12AE00B9AC9A /* CharacterDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterDTO+Mapping.swift"; sourceTree = "<group>"; };
+		248368A62AFD15C900B9AC9A /* LoadCharacterDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCharacterDetailUseCase.swift; sourceTree = "<group>"; };
+		248368AA2AFD19E300B9AC9A /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
+		248368AC2AFD2D1C00B9AC9A /* SpinnerDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerDisplayable.swift; sourceTree = "<group>"; };
 		24E03B472AE6AB02005E78DD /* Rick&Morty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick&Morty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E03B4A2AE6AB02005E78DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24E03B4C2AE6AB02005E78DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -242,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				246101122AFC4451000E1295 /* MessageDisplayable.swift */,
+				248368AC2AFD2D1C00B9AC9A /* SpinnerDisplayable.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -361,8 +374,8 @@
 		247A90342AFB9E69007F0805 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
-				247A90882AFBE2A8007F0805 /* Domain */,
 				247A907B2AFBE0C6007F0805 /* Data */,
+				247A90882AFBE2A8007F0805 /* Domain */,
 				247A90362AFB9EA0007F0805 /* Scene */,
 				247A90352AFB9E9A007F0805 /* Composition */,
 			);
@@ -551,7 +564,6 @@
 			isa = PBXGroup;
 			children = (
 				247A907D2AFBE0E0007F0805 /* ResultsCharacterDTO.swift */,
-				247A907F2AFBE10E007F0805 /* CharacterDTO.swift */,
 				246100FA2AFBE5B4000E1295 /* ResultsCharacterDTO+Mapping.swift */,
 			);
 			path = DTO;
@@ -563,6 +575,7 @@
 				247A90822AFBE199007F0805 /* OriginDTO.swift */,
 				247A90842AFBE1B8007F0805 /* LocationDTO.swift */,
 				247A90862AFBE1FD007F0805 /* InfoDTO.swift */,
+				247A907F2AFBE10E007F0805 /* CharacterDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -587,6 +600,8 @@
 		248368912AFCEC9200B9AC9A /* CharacterDetail */ = {
 			isa = PBXGroup;
 			children = (
+				2483689B2AFCF7DA00B9AC9A /* Data */,
+				2483689A2AFCF7D600B9AC9A /* Domain */,
 				248368932AFCECA600B9AC9A /* Scene */,
 				248368922AFCEC9E00B9AC9A /* Composition */,
 			);
@@ -605,9 +620,76 @@
 		248368932AFCECA600B9AC9A /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				248368942AFCECCD00B9AC9A /* CharacterDetailViewController.swift */,
+				248368A92AFD19D100B9AC9A /* View */,
+				248368A82AFD19CA00B9AC9A /* ViewModel */,
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		2483689A2AFCF7D600B9AC9A /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				248368A52AFD159E00B9AC9A /* UseCases */,
+				2483689C2AFCF81600B9AC9A /* RepositoriesInterfaces */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		2483689B2AFCF7DA00B9AC9A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				248368A22AFD129600B9AC9A /* DTO */,
+				2483689F2AFCF8E900B9AC9A /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2483689C2AFCF81600B9AC9A /* RepositoriesInterfaces */ = {
+			isa = PBXGroup;
+			children = (
+				2483689D2AFCF84900B9AC9A /* CharacterDetailRepository.swift */,
+			);
+			path = RepositoriesInterfaces;
+			sourceTree = "<group>";
+		};
+		2483689F2AFCF8E900B9AC9A /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				248368A02AFD119900B9AC9A /* CharacterDetailRepositoryImp.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		248368A22AFD129600B9AC9A /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				248368A32AFD12AE00B9AC9A /* CharacterDTO+Mapping.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		248368A52AFD159E00B9AC9A /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				248368A62AFD15C900B9AC9A /* LoadCharacterDetailUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		248368A82AFD19CA00B9AC9A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				248368AA2AFD19E300B9AC9A /* CharacterDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		248368A92AFD19D100B9AC9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				248368942AFCECCD00B9AC9A /* CharacterDetailViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		24DE37A42AEAAE25007FCA1E /* Extension */ = {
@@ -780,12 +862,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				248368A42AFD12AE00B9AC9A /* CharacterDTO+Mapping.swift in Sources */,
 				246100FB2AFBE5B4000E1295 /* ResultsCharacterDTO+Mapping.swift in Sources */,
 				246101062AFC0ED6000E1295 /* BaseViewModel.swift in Sources */,
 				248368992AFCED3700B9AC9A /* CharacterDetailFactory.swift in Sources */,
 				247A90762AFBDE07007F0805 /* Specie.swift in Sources */,
 				246101102AFC2524000E1295 /* LastPageValidationUseCase.swift in Sources */,
 				247A90782AFBE02C007F0805 /* Origin.swift in Sources */,
+				2483689E2AFCF84900B9AC9A /* CharacterDetailRepository.swift in Sources */,
 				247A902C2AFB9BDC007F0805 /* MainTabBarController.swift in Sources */,
 				2461011B2AFC47C9000E1295 /* NetworkService+ext.swift in Sources */,
 				247A90552AFBB6A0007F0805 /* NetworkError.swift in Sources */,
@@ -793,6 +877,7 @@
 				247A90572AFBB765007F0805 /* Network.swift in Sources */,
 				247A90102AFB984C007F0805 /* ParentCoordinator.swift in Sources */,
 				247A90702AFBDC9E007F0805 /* String+ext.swift in Sources */,
+				248368A12AFD119900B9AC9A /* CharacterDetailRepositoryImp.swift in Sources */,
 				247A90132AFB987C007F0805 /* Router.swift in Sources */,
 				2461010A2AFC1C12000E1295 /* UITableViewController+ext.swift in Sources */,
 				247A903A2AFBA698007F0805 /* CharactersFactory.swift in Sources */,
@@ -802,6 +887,7 @@
 				248368972AFCED0300B9AC9A /* CharacterDetailCoordinator.swift in Sources */,
 				246101022AFC0DD7000E1295 /* CharacterViewModel.swift in Sources */,
 				247A90852AFBE1B8007F0805 /* LocationDTO.swift in Sources */,
+				248368AB2AFD19E300B9AC9A /* CharacterDetailViewModel.swift in Sources */,
 				24E03B4B2AE6AB02005E78DD /* AppDelegate.swift in Sources */,
 				248368952AFCECCD00B9AC9A /* CharacterDetailViewController.swift in Sources */,
 				247A90802AFBE10E007F0805 /* CharacterDTO.swift in Sources */,
@@ -813,10 +899,12 @@
 				246101212AFC49F0000E1295 /* ImageDataRepository.swift in Sources */,
 				24E03B712AE6B2A3005E78DD /* AppCoordinator.swift in Sources */,
 				247A90622AFBC28E007F0805 /* Reusable.swift in Sources */,
+				248368A72AFD15C900B9AC9A /* LoadCharacterDetailUseCase.swift in Sources */,
 				247A90272AFB9B3C007F0805 /* LoginViewModel.swift in Sources */,
 				247A901B2AFB99C9007F0805 /* Auth.swift in Sources */,
 				247A90252AFB9B2B007F0805 /* LoginViewController.swift in Sources */,
 				246101042AFC0E36000E1295 /* ItemCharacterViewModel.swift in Sources */,
+				248368AD2AFD2D1C00B9AC9A /* SpinnerDisplayable.swift in Sources */,
 				246101132AFC4451000E1295 /* MessageDisplayable.swift in Sources */,
 				246101082AFC0F4A000E1295 /* StateController.swift in Sources */,
 				247A90742AFBDDEF007F0805 /* StatusCharacter.swift in Sources */,
