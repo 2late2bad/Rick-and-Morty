@@ -21,6 +21,9 @@ final class EpisodeCell: UICollectionViewCell {
         label.textAlignment = .center
         label.textColor = .label
         label.numberOfLines = 4
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.8
+        label.lineBreakMode = .byTruncatingTail
         label.font = .preferredFont(forTextStyle: .subheadline)
         return label
     }()

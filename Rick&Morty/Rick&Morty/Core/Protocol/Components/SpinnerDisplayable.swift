@@ -23,7 +23,7 @@ extension SpinnerDisplayable where Self : UIViewController {
         containerView.tag = R.ViewValues.tagIdentifierSpinner
         parentView.addSubview(containerView)
         containerView.fillSuperView()
-        containerView.backgroundColor = .black.withAlphaComponent(R.ViewValues.opacityContainerSpinner)
+        //containerView.backgroundColor = .black.withAlphaComponent(R.ViewValues.opacityContainerSpinner)
         addSpinnerIndicatorToContainer(containerView: containerView)
     }
     

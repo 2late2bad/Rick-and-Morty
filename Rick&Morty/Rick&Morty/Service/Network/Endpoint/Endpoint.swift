@@ -7,4 +7,5 @@
 
 struct Endpoint {
     static let charURL = "https://rickandmortyapi.com/api/character"
+    static let episodeURL = "https://rickandmortyapi.com/api/episode"
 }
