@@ -8,10 +8,7 @@
 import UIKit
 import Combine
 
-protocol CharacterDetailViewControllerCoordinator {
-    func didTapOriginButton()
-    func didTapLocationButton()
-}
+protocol CharacterDetailViewControllerCoordinator {}
 
 final class CharacterDetailViewController: UIViewController {
     
@@ -19,35 +16,20 @@ final class CharacterDetailViewController: UIViewController {
     private let viewModel: CharacterDetailViewModel
     private let coordinator: CharacterDetailViewControllerCoordinator
     
-    private let characterImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.addDefaultImage()
-        imageView.contentMode = .scaleAspectFill
-        imageView.setHeightConstraint(with: UIScreen.main.bounds.width)
-        return imageView
+    private lazy var collectionView: UICollectionView = {
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.dataSource = self
+        collection.showsVerticalScrollIndicator = false
+        return collection
     }()
-    
-    private let containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemBackground
-        view.layer.cornerRadius = R.ViewValues.defaultCornerRadius * 2
-        return view
+    private var layout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        let itemWidth = (UIScreen.main.bounds.width - 60) / 2
+        layout.itemSize = CGSize(width: itemWidth, height: 200)
+        layout.minimumLineSpacing = 20
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        return layout
     }()
-    
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Name Test"
-        label.font = .preferredFont(forTextStyle: .title2)
-        label.textAlignment = .center
-        return label
-    }()
-    
-    private lazy var statusLabel: UILabel = makeGrayLabels(text: "Status: Test")
-    private lazy var specieLabel: UILabel = makeGrayLabels(text: "Specie: Test")
-    private lazy var genderLabel: UILabel = makeGrayLabels(text: "Gender: Test")
-    
-    private lazy var originButton: UIButton = makeSubtitleBlueButton(title: "Origin", subtitle: "Earth")
-    private lazy var loactionButton: UIButton = makeSubtitleBlueButton(title: "Location", subtitle: "Citadel")
     
     init(viewModel: CharacterDetailViewModel,
          coordinator: CharacterDetailViewControllerCoordinator) {
@@ -62,61 +44,21 @@ final class CharacterDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        setupViews()
         stateController()
-        configureTargets()
         viewModel.viewDidLoad()
     }
 }
 
 private extension CharacterDetailViewController {
     
-    func setupView() {
+    func setupViews() {
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = false
-        
-        view.addSubview(characterImageView)
-        characterImageView.setConstraints(top: view.safeAreaLayoutGuide.topAnchor,
-                                          right: view.rightAnchor,
-                                          left: view.leftAnchor)
-        view.addSubview(containerView)
-        containerView.setConstraints(top: characterImageView.bottomAnchor,
-                                     right: view.rightAnchor,
-                                     bottom: view.bottomAnchor,
-                                     left: view.leftAnchor,
-                                     pTop: -15)
-        containerView.addSubview(nameLabel)
-        nameLabel.setConstraints(top: containerView.topAnchor,
-                                 right: containerView.rightAnchor,
-                                 left: containerView.leftAnchor,
-                                 pTop: R.ViewValues.normalPadding)
-        containerView.addSubview(statusLabel)
-        statusLabel.setConstraints(top: nameLabel.bottomAnchor,
-                                 right: containerView.rightAnchor,
-                                 left: containerView.leftAnchor,
-                                 pTop: 5)
-        containerView.addSubview(specieLabel)
-        specieLabel.setConstraints(top: statusLabel.bottomAnchor,
-                                 right: containerView.rightAnchor,
-                                 left: containerView.leftAnchor,
-                                 pTop: 5)
-        containerView.addSubview(genderLabel)
-        genderLabel.setConstraints(top: specieLabel.bottomAnchor,
-                                 right: containerView.rightAnchor,
-                                 left: containerView.leftAnchor,
-                                 pTop: 5)
-        let buttonStackView = UIStackView(arrangedSubviews: [originButton, loactionButton])
-        buttonStackView.axis = .vertical
-        buttonStackView.spacing = R.ViewValues.normalPadding
-        containerView.addSubview(buttonStackView)
-        buttonStackView.setConstraints(top: genderLabel.bottomAnchor,
-                                       right: containerView.rightAnchor,
-                                       left: containerView.leftAnchor,
-                                       pTop: R.ViewValues.normalPadding,
-                                       pRight: R.ViewValues.doublePadding,
-                                       pLeft: R.ViewValues.doublePadding)
+        view.addSubview(collectionView)
+        collectionView.setConstraints(top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, bottom: view.bottomAnchor, left: view.leftAnchor)
+        collectionView.register(EpisodeCell.self, forCellWithReuseIdentifier: EpisodeCell.reuseIdentifier)
     }
-    
+
     func stateController() {
         viewModel
             .state
@@ -125,7 +67,7 @@ private extension CharacterDetailViewController {
                 self?.hideSpinner()
                 switch state {
                 case .success:
-                    self?.configureSelf()
+                    self?.collectionView.reloadData()
                 case .loading:
                     self?.showSpinner()
                 case .fail(error: let error):
@@ -134,58 +76,23 @@ private extension CharacterDetailViewController {
             }
             .store(in: &cancellables)
     }
+}
+
+extension CharacterDetailViewController: UICollectionViewDataSource {
     
-    private func configureSelf() {
-        nameLabel.text = viewModel.nameCharacter
-        statusLabel.text = viewModel.status
-        specieLabel.text = viewModel.specie
-        characterImageView.setImageFromData(data: viewModel.imageData)
-        originButton.configuration?.subtitle = viewModel.origin
-        loactionButton.configuration?.subtitle = viewModel.location
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.episodes.count
     }
     
-    private func configureTargets() {
-        originButton.addTarget(self, action: #selector(didTapOriginButton), for: .touchUpInside)
-        loactionButton.addTarget(self, action: #selector(didTapLocationButton), for: .touchUpInside)
-    }
-    
-    func makeGrayLabels(text: String) -> UILabel {
-        let label = UILabel()
-        label.text = "Status: Test"
-        label.textColor = .systemGray
-        label.font = .preferredFont(forTextStyle: .subheadline)
-        label.textAlignment = .center
-        return label
-    }
-    
-    func makeSubtitleBlueButton(title: String, subtitle: String) -> UIButton {
-        let button = UIButton(type: .system)
-        var configuration = UIButton.Configuration.filled()
-        configuration.title = title
-        configuration.subtitle = subtitle
-        configuration.buttonSize = .small
-        configuration.titleAlignment = .center
-        configuration.cornerStyle = .large
-        configuration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
-            var outgoing = incoming
-            outgoing.font = UIFont.preferredFont(forTextStyle: .headline)
-            return outgoing
-        }
-        configuration.subtitleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
-            var outgoing = incoming
-            outgoing.font = UIFont.preferredFont(forTextStyle: .subheadline)
-            return outgoing
-        }
-        button.configuration = configuration
-        return button
-    }
-    
-    @objc func didTapOriginButton() {
-        coordinator.didTapOriginButton()
-    }
-    
-    @objc func didTapLocationButton() {
-        coordinator.didTapLocationButton()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: EpisodeCell.reuseIdentifier,
+                for: indexPath) as? EpisodeCell
+        else { return UICollectionViewCell() }
+        let item = indexPath.row
+        cell.configure(with: viewModel.episodes[item])
+        return cell
     }
 }
 

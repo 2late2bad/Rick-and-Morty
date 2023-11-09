@@ -24,7 +24,8 @@ extension ResultsCharacterDTO {
                 urlCharacter: $0.url,
                 urlImage: $0.image,
                 origin: origin,
-                location: location)
+                location: location,
+                episode: $0.episode)
         }
         let info = Info(next: info.next)
         return (info: info, characters: characterModel)

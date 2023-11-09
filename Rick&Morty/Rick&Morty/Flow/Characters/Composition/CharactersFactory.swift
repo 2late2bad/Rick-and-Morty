@@ -12,7 +12,7 @@ protocol CharactersFactory {
     func makeCharactersViewController(coordinator: CharactersViewControllerCoordinator) -> UIViewController
     func makeItemTabBar(router: Router)
 //    func makePostDetailCoordinator(router: Router, id: Int, parentCoordinator: ParentCoordinator) -> Coordinator
-    func makeCharacterDetailCoordinator(router: Router, parent: ParentCoordinator, urlDetail: String) -> Coordinator
+    func makeCharacterDetailCoordinator(router: Router, parent: ParentCoordinator, episodes: [String]) -> Coordinator
 }
 
 struct CharactersFactoryImp: CharactersFactory {
@@ -44,8 +44,8 @@ struct CharactersFactoryImp: CharactersFactory {
         )
     }
     
-    func makeCharacterDetailCoordinator(router: Router, parent: ParentCoordinator, urlDetail: String) -> Coordinator {
-        let factory = CharacterDetailFactoryImp(urlDetail: urlDetail, appDIContainer: appDIContainer)
+    func makeCharacterDetailCoordinator(router: Router, parent: ParentCoordinator, episodes: [String]) -> Coordinator {
+        let factory = CharacterDetailFactoryImp(episodes: episodes, appDIContainer: appDIContainer)
         let coordinator = CharacterDetailCoordinator(router: router,
                                                      characterDetailFactory: factory,
                                                      parent: parent)

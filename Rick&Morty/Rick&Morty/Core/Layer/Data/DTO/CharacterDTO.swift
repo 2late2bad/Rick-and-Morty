@@ -14,4 +14,5 @@ struct CharacterDTO: Decodable {
     let url: String
     let origin: OriginDTO
     let location: LocationDTO
+    let episode: [String]
 }

@@ -49,6 +49,7 @@ private extension NetworkService {
     
     func decodeModel<T: Decodable>(data: Data) throws -> T {
         let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         let model = try? decoder.decode(T.self, from: data)
         guard let model else { throw NetworkError.errorDecoding }
         return model

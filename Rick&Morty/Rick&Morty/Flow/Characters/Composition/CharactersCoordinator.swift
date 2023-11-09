@@ -28,13 +28,12 @@ final class CharactersCoordinator: Coordinator {
 }
 
 extension CharactersCoordinator: CharactersViewControllerCoordinator {
-    func didSelectCharacter(url: String) {
-        let postDetailCoordinator = factory.makeCharacterDetailCoordinator(router: router,
-                                                                           parent: self,
-                                                                           urlDetail: url)
+    func didListEpisodesCharacter(episodes: [String]) {
+        let postDetailCoordinator = factory.makeCharacterDetailCoordinator(
+            router: router,
+            parent: self,
+            episodes: episodes)
         addChild(postDetailCoordinator)
-        //        let postDetailCoordinator = factory.makePostDetailCoordinator(navigation: navigation, id: id, parentCoordinator: self)
-        //        addChild(postDetailCoordinator)
     }
 }
 

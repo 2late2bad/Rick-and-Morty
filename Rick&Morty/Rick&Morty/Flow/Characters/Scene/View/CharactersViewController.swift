@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 protocol CharactersViewControllerCoordinator: AnyObject {
-    func didSelectCharacter(url: String)
+    func didListEpisodesCharacter(episodes: [String])
 }
 
 final class CharactersViewController: UITableViewController {
@@ -92,8 +92,8 @@ extension CharactersViewController {
 extension CharactersViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
-        let urlDetail = viewModel.getUrlDetail(row: row)
-        coordinator?.didSelectCharacter(url: urlDetail)
+        let episodes = viewModel.getListEpisodes(row: row)
+        coordinator?.didListEpisodesCharacter(episodes: episodes)
     }
 }
 

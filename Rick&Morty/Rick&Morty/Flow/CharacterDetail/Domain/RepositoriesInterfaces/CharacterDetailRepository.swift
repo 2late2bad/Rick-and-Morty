@@ -6,5 +6,5 @@
 //
 
 protocol CharacterDetailRepository {
-    func fetchCharacterDetail(urlDetail: String) async throws -> Character
+    func fetchCharacterDetail(episodes: [String]) async throws -> [Episode]
 }

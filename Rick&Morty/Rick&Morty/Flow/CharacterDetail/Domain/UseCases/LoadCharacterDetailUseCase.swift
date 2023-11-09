@@ -6,15 +6,15 @@
 //
 
 protocol LoadCharacterDetailUseCase {
-    func execute() async throws -> Character
+    func execute() async throws -> [Episode]
 }
 
 struct LoadCharacterDetailUseCaseImp: LoadCharacterDetailUseCase {
     
     private(set) var characterDetailRepository: CharacterDetailRepository
-    private(set) var urlDetail: String
+    private(set) var episodes: [String]
     
-    func execute() async throws -> Character {
-        try await characterDetailRepository.fetchCharacterDetail(urlDetail: urlDetail)
+    func execute() async throws -> [Episode] {
+        try await characterDetailRepository.fetchCharacterDetail(episodes: episodes)
     }
 }

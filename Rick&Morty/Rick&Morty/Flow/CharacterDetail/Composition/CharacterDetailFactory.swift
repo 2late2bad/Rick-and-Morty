@@ -14,7 +14,7 @@ protocol CharacterDetailFactory {
 
 struct CharacterDetailFactoryImp: CharacterDetailFactory {
     
-    let urlDetail: String
+    let episodes: [String]
     let appDIContainer: AppContainer
 
     func makeModule(coordinator: CharacterDetailViewControllerCoordinator) -> UIViewController {
@@ -22,7 +22,7 @@ struct CharacterDetailFactoryImp: CharacterDetailFactory {
         let characterDetailRepository = CharacterDetailRepositoryImp(network: appDIContainer.networkService)
         let loadCharacterDetailUseCase = LoadCharacterDetailUseCaseImp(
             characterDetailRepository: characterDetailRepository,
-            urlDetail: urlDetail)
+            episodes: episodes)
         let viewModel = CharacterDetailViewModelImp(
             state: state,
             loadCharacterDetailUseCase: loadCharacterDetailUseCase,
@@ -30,6 +30,7 @@ struct CharacterDetailFactoryImp: CharacterDetailFactory {
         let controller = CharacterDetailViewController(
             viewModel: viewModel,
             coordinator: coordinator)
+        controller.navigationItem.title = "Эпизоды"
         return controller
     }
 }

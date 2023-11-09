@@ -11,7 +11,7 @@ protocol CharacterViewModel: BaseViewModel {
     var itemCharacterCount: Int { get }
     var lastPage: Bool { get }
     func getItemMenuViewModel(row: Int) -> ItemCharacterViewModel
-    func getUrlDetail(row: Int) -> String
+    func getListEpisodes(row: Int) -> [String]
 }
 
 final class CharacterViewModelImp: CharacterViewModel {
@@ -55,9 +55,9 @@ final class CharacterViewModelImp: CharacterViewModel {
         return makeItemCharacterViewModel(row: row)
     }
     
-    func getUrlDetail(row: Int) -> String {
+    func getListEpisodes(row: Int) -> [String] {
         let character = characters[row]
-        return character.urlCharacter
+        return character.episode
     }
     
     private func loadCharactersUseCase() async {

@@ -9,42 +9,19 @@ import Foundation
 import Combine
 
 protocol CharacterDetailViewModel: BaseViewModel {
-    var nameCharacter: String { get }
-    var status: String { get }
-    var specie: String { get }
-    var imageData: Data? { get }
-    var origin: String { get }
-    var location: String { get }
+    var episodes: [Episode] { get }
 }
 
 final class CharacterDetailViewModelImp: CharacterDetailViewModel {
     
     // MARK: - Public properties
     var state: PassthroughSubject<StateController, Never>
-
-    var nameCharacter: String {
-        character?.name ?? .empty
-    }
-    var status: String {
-        character?.status?.description ?? .empty
-    }
-    var specie: String {
-        character?.specie.description ?? .empty
-    }
-    var imageData: Data? {
-        dataImageUseCase.getDataFromCache(url: character?.urlImage)
-    }
-    var origin: String {
-        character?.origin.name ?? .empty
-    }
-    var location: String {
-        character?.location.name ?? .empty
-    }
+    var episodes: [Episode] { loadEpisodes ?? [] }
     
     // MARK: - Private properties
     private let loadCharacterDetailUseCase: LoadCharacterDetailUseCase
     private let dataImageUseCase: ImageDataUseCase
-    private var character: Character?
+    private var loadEpisodes: [Episode]?
     
     init(state: PassthroughSubject<StateController, Never>,
          loadCharacterDetailUseCase: LoadCharacterDetailUseCase,
@@ -53,13 +30,13 @@ final class CharacterDetailViewModelImp: CharacterDetailViewModel {
         self.loadCharacterDetailUseCase = loadCharacterDetailUseCase
         self.dataImageUseCase = dataImageUseCase
     }
-        
+    
     func viewDidLoad() {
         state.send(.loading)
         Task {
             do {
-                let charResult = try await loadCharacterDetailUseCase.execute()
-                character = charResult
+                let episodesResult = try await loadCharacterDetailUseCase.execute()
+                loadEpisodes = episodesResult
                 state.send(.success)
             } catch {
                 state.send(.fail(error: error.localizedDescription))
