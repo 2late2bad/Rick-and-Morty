@@ -18,8 +18,9 @@ final class CharactersViewController: UITableViewController {
     private let viewModel: CharacterViewModel
     private var cancellables = Set<AnyCancellable>()
     
-    init(viewModel: CharacterViewModel) {
+    init(viewModel: CharacterViewModel, coordinator: CharactersViewControllerCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -84,6 +85,15 @@ extension CharactersViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         tableView.tableFooterView?.isHidden = viewModel.lastPage
+    }
+}
+
+// MARK: - TableViewDelegate
+extension CharactersViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        let urlDetail = viewModel.getUrlDetail(row: row)
+        coordinator?.didSelectCharacter(url: urlDetail)
     }
 }
 

@@ -12,6 +12,7 @@ protocol CharactersFactory {
     func makeCharactersViewController(coordinator: CharactersViewControllerCoordinator) -> UIViewController
     func makeItemTabBar(router: Router)
 //    func makePostDetailCoordinator(router: Router, id: Int, parentCoordinator: ParentCoordinator) -> Coordinator
+    func makeCharacterDetailCoordinator(router: Router, parent: ParentCoordinator, urlDetail: String) -> Coordinator
 }
 
 struct CharactersFactoryImp: CharactersFactory {
@@ -29,7 +30,7 @@ struct CharactersFactoryImp: CharactersFactory {
             loadCharactersUseCase: loadCharactersUseCase,
             state: state,
             lastPageValidationUseCase: lastPageValidationUseCase, imageDataUseCase: appDIContainer.getDataImageUseCase())
-        let controller = CharactersViewController(viewModel: viewModel)
+        let controller = CharactersViewController(viewModel: viewModel, coordinator: coordinator)
         controller.navigationItem.title = "Персонажи"
         return controller
     }
@@ -41,6 +42,14 @@ struct CharactersFactoryImp: CharactersFactory {
             image: "person.text.rectangle",
             selectedImage: "person.text.rectangle.fill"
         )
+    }
+    
+    func makeCharacterDetailCoordinator(router: Router, parent: ParentCoordinator, urlDetail: String) -> Coordinator {
+        let factory = CharacterDetailFactoryImp(urlDetail: urlDetail, appDIContainer: appDIContainer)
+        let coordinator = CharacterDetailCoordinator(router: router,
+                                                     characterDetailFactory: factory,
+                                                     parent: parent)
+        return coordinator
     }
     
 //    func makeCharacterDetailCoordinator(router: Router, id: Int, parentCoordinator: ParentCoordinator) -> Coordinator {

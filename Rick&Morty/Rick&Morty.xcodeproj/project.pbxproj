@@ -70,6 +70,9 @@
 		247A90872AFBE1FD007F0805 /* InfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90862AFBE1FD007F0805 /* InfoDTO.swift */; };
 		247A908B2AFBE2CE007F0805 /* CharactersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A908A2AFBE2CE007F0805 /* CharactersRepository.swift */; };
 		247A908D2AFBE350007F0805 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A908C2AFBE350007F0805 /* Info.swift */; };
+		248368952AFCECCD00B9AC9A /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368942AFCECCD00B9AC9A /* CharacterDetailViewController.swift */; };
+		248368972AFCED0300B9AC9A /* CharacterDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368962AFCED0300B9AC9A /* CharacterDetailCoordinator.swift */; };
+		248368992AFCED3700B9AC9A /* CharacterDetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368982AFCED3700B9AC9A /* CharacterDetailFactory.swift */; };
 		24E03B4B2AE6AB02005E78DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B4A2AE6AB02005E78DD /* AppDelegate.swift */; };
 		24E03B4D2AE6AB02005E78DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B4C2AE6AB02005E78DD /* SceneDelegate.swift */; };
 		24E03B542AE6AB03005E78DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E03B532AE6AB03005E78DD /* Assets.xcassets */; };
@@ -141,6 +144,9 @@
 		247A90862AFBE1FD007F0805 /* InfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDTO.swift; sourceTree = "<group>"; };
 		247A908A2AFBE2CE007F0805 /* CharactersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRepository.swift; sourceTree = "<group>"; };
 		247A908C2AFBE350007F0805 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		248368942AFCECCD00B9AC9A /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
+		248368962AFCED0300B9AC9A /* CharacterDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailCoordinator.swift; sourceTree = "<group>"; };
+		248368982AFCED3700B9AC9A /* CharacterDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailFactory.swift; sourceTree = "<group>"; };
 		24E03B472AE6AB02005E78DD /* Rick&Morty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick&Morty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E03B4A2AE6AB02005E78DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24E03B4C2AE6AB02005E78DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -578,6 +584,32 @@
 			path = RepositoriesInterfaces;
 			sourceTree = "<group>";
 		};
+		248368912AFCEC9200B9AC9A /* CharacterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				248368932AFCECA600B9AC9A /* Scene */,
+				248368922AFCEC9E00B9AC9A /* Composition */,
+			);
+			path = CharacterDetail;
+			sourceTree = "<group>";
+		};
+		248368922AFCEC9E00B9AC9A /* Composition */ = {
+			isa = PBXGroup;
+			children = (
+				248368962AFCED0300B9AC9A /* CharacterDetailCoordinator.swift */,
+				248368982AFCED3700B9AC9A /* CharacterDetailFactory.swift */,
+			);
+			path = Composition;
+			sourceTree = "<group>";
+		};
+		248368932AFCECA600B9AC9A /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				248368942AFCECCD00B9AC9A /* CharacterDetailViewController.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
 		24DE37A42AEAAE25007FCA1E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -596,6 +628,7 @@
 				247A901D2AFB9A3F007F0805 /* Login */,
 				24DE37B32AEABF2B007FCA1E /* MainTabBar */,
 				247A90342AFB9E69007F0805 /* Characters */,
+				248368912AFCEC9200B9AC9A /* CharacterDetail */,
 				247A90332AFB9E62007F0805 /* Settings */,
 			);
 			path = Flow;
@@ -749,6 +782,7 @@
 			files = (
 				246100FB2AFBE5B4000E1295 /* ResultsCharacterDTO+Mapping.swift in Sources */,
 				246101062AFC0ED6000E1295 /* BaseViewModel.swift in Sources */,
+				248368992AFCED3700B9AC9A /* CharacterDetailFactory.swift in Sources */,
 				247A90762AFBDE07007F0805 /* Specie.swift in Sources */,
 				246101102AFC2524000E1295 /* LastPageValidationUseCase.swift in Sources */,
 				247A90782AFBE02C007F0805 /* Origin.swift in Sources */,
@@ -765,9 +799,11 @@
 				246100FE2AFC0C1C000E1295 /* LoadCharacterUseCase.swift in Sources */,
 				247A90322AFB9CA9007F0805 /* ItemTabBarFactory.swift in Sources */,
 				247A907E2AFBE0E0007F0805 /* ResultsCharacterDTO.swift in Sources */,
+				248368972AFCED0300B9AC9A /* CharacterDetailCoordinator.swift in Sources */,
 				246101022AFC0DD7000E1295 /* CharacterViewModel.swift in Sources */,
 				247A90852AFBE1B8007F0805 /* LocationDTO.swift in Sources */,
 				24E03B4B2AE6AB02005E78DD /* AppDelegate.swift in Sources */,
+				248368952AFCECCD00B9AC9A /* CharacterDetailViewController.swift in Sources */,
 				247A90802AFBE10E007F0805 /* CharacterDTO.swift in Sources */,
 				247A90302AFB9C9C007F0805 /* MainTabBarCoordinator.swift in Sources */,
 				247A90722AFBDD35007F0805 /* AppLocalized.swift in Sources */,
