@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var appCoordinator: Coordinator?
     var appFactory: AppFactory?
-    var appDIContainer: AppDIContainer?
+    var appDIContainer: AppContainer!
     
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
@@ -25,8 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             router: RouterImp(rootViewController: .init()),
             window: window,
             factory: appFactory,
-            auth: appDIContainer?.auth
-        )
+            auth: appDIContainer.auth
+        )        
         appCoordinator?.start()
     }
 

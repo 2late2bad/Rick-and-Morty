@@ -15,7 +15,7 @@ final class AppCoordinator: Coordinator {
     var factory: AppFactory?
     var auth: SessionCheckerAuth?
     
-    init(router: Router, window: UIWindow?, factory: AppFactory?, auth: Auth?) {
+    init(router: Router, window: UIWindow?, factory: AppFactory?, auth: SessionCheckerAuth?) {
         self.router = router
         self.window = window
         self.factory = factory
@@ -34,7 +34,8 @@ final class AppCoordinator: Coordinator {
     
     private func startSomeCoordinator() {
         guard let auth else { return }
-        auth.isSessionActive ? startMainTabBarCoordinator() : startLoginCoordinator()
+        //auth.isSessionActive ? startMainTabBarCoordinator() : startLoginCoordinator()
+        startMainTabBarCoordinator()
     }
     
     private func startLoginCoordinator() {
