@@ -8,10 +8,11 @@
 import UIKit
 
 struct SettingsFactory: ItemTabBarFactory {
-    let appDIContainer: AppDIContainer?
+    
+    let appDIContainer: AppContainer
     
     func makeSettingsController(coordinator: SettingsViewControllerCoordinator) -> UIViewController {
-        let viewModel = SettingsViewModel(auth: appDIContainer?.auth)
+        let viewModel = SettingsViewModel(auth: appDIContainer.auth)
         let controller = SettingsViewController(viewModel: viewModel, coordinator: coordinator)
         controller.title = "Настройки ⚙"
         return controller

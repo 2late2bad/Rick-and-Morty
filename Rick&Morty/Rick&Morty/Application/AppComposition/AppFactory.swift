@@ -8,7 +8,8 @@
 import UIKit
 
 struct AppFactory {
-    let appDIContainer: AppDIContainer?
+    
+    let appDIContainer: AppContainer
     
     func makeLoginCoordinator(
         router: Router,

@@ -8,12 +8,13 @@
 import UIKit
 
 struct LoginFactory {
-    let appDIContainer: AppDIContainer?
+    
+    let appDIContainer: AppContainer
     
     func makeLoginViewController(coordinator: LoginViewControllerCoordinator) -> UIViewController {
         LoginViewController(
             coordinator: coordinator,
-            viewModel: LoginViewModel(loginAuth: appDIContainer?.auth)
+            viewModel: LoginViewModel(loginAuth: appDIContainer.auth)
         )
     }
 }
