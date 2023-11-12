@@ -70,6 +70,13 @@
 		247A90872AFBE1FD007F0805 /* InfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A90862AFBE1FD007F0805 /* InfoDTO.swift */; };
 		247A908B2AFBE2CE007F0805 /* CharactersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A908A2AFBE2CE007F0805 /* CharactersRepository.swift */; };
 		247A908D2AFBE350007F0805 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A908C2AFBE350007F0805 /* Info.swift */; };
+		247C90E22B01333C008D7F23 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C90E12B01333C008D7F23 /* LoginTextField.swift */; };
+		247C90E42B013361008D7F23 /* EyeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C90E32B013361008D7F23 /* EyeButton.swift */; };
+		247C90E62B013CDB008D7F23 /* UITextField+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C90E52B013CDB008D7F23 /* UITextField+ext.swift */; };
+		247C90E82B0143AA008D7F23 /* UIButton+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C90E72B0143AA008D7F23 /* UIButton+ext.swift */; };
+		247C90EB2B0152D4008D7F23 /* KeychainImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C90EA2B0152D4008D7F23 /* KeychainImp.swift */; };
+		247C90EE2B015349008D7F23 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C90ED2B015349008D7F23 /* Keychain.swift */; };
+		247C90F02B015C8C008D7F23 /* ChangePassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C90EF2B015C8C008D7F23 /* ChangePassViewController.swift */; };
 		248368952AFCECCD00B9AC9A /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368942AFCECCD00B9AC9A /* CharacterDetailViewController.swift */; };
 		248368972AFCED0300B9AC9A /* CharacterDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368962AFCED0300B9AC9A /* CharacterDetailCoordinator.swift */; };
 		248368992AFCED3700B9AC9A /* CharacterDetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248368982AFCED3700B9AC9A /* CharacterDetailFactory.swift */; };
@@ -154,6 +161,13 @@
 		247A90862AFBE1FD007F0805 /* InfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDTO.swift; sourceTree = "<group>"; };
 		247A908A2AFBE2CE007F0805 /* CharactersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRepository.swift; sourceTree = "<group>"; };
 		247A908C2AFBE350007F0805 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		247C90E12B01333C008D7F23 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		247C90E32B013361008D7F23 /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
+		247C90E52B013CDB008D7F23 /* UITextField+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+ext.swift"; sourceTree = "<group>"; };
+		247C90E72B0143AA008D7F23 /* UIButton+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ext.swift"; sourceTree = "<group>"; };
+		247C90EA2B0152D4008D7F23 /* KeychainImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainImp.swift; sourceTree = "<group>"; };
+		247C90ED2B015349008D7F23 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		247C90EF2B015C8C008D7F23 /* ChangePassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassViewController.swift; sourceTree = "<group>"; };
 		248368942AFCECCD00B9AC9A /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		248368962AFCED0300B9AC9A /* CharacterDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailCoordinator.swift; sourceTree = "<group>"; };
 		248368982AFCED3700B9AC9A /* CharacterDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailFactory.swift; sourceTree = "<group>"; };
@@ -337,8 +351,8 @@
 		247A901E2AFB9AC6007F0805 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				247A90242AFB9B2B007F0805 /* LoginViewController.swift */,
-				247A90262AFB9B3C007F0805 /* LoginViewModel.swift */,
+				247C90F92B016E76008D7F23 /* View */,
+				247C90FA2B016E79008D7F23 /* ViewModel */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -373,7 +387,7 @@
 		247A90332AFB9E62007F0805 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				247A90382AFB9EAC007F0805 /* Scene */,
+				247A90382AFB9EAC007F0805 /* SettingsScene */,
 				247A90372AFB9EA6007F0805 /* Composition */,
 			);
 			path = Settings;
@@ -417,19 +431,20 @@
 			path = Composition;
 			sourceTree = "<group>";
 		};
-		247A90382AFB9EAC007F0805 /* Scene */ = {
+		247A90382AFB9EAC007F0805 /* SettingsScene */ = {
 			isa = PBXGroup;
 			children = (
 				247A90432AFBA977007F0805 /* View */,
 				247A90442AFBA97E007F0805 /* ViewModel */,
 			);
-			path = Scene;
+			path = SettingsScene;
 			sourceTree = "<group>";
 		};
 		247A90432AFBA977007F0805 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				247A90452AFBA98B007F0805 /* SettingsViewController.swift */,
+				247C90EF2B015C8C008D7F23 /* ChangePassViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -447,6 +462,7 @@
 		247A904D2AFBADA9007F0805 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				247C90E92B01529E008D7F23 /* Keychain */,
 				247A90192AFB99C0007F0805 /* Auth */,
 				247A904E2AFBB60D007F0805 /* Network */,
 				2461011C2AFC48BD000E1295 /* LocalStorage */,
@@ -608,6 +624,40 @@
 			path = RepositoriesInterfaces;
 			sourceTree = "<group>";
 		};
+		247C90E92B01529E008D7F23 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				247C90EA2B0152D4008D7F23 /* KeychainImp.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		247C90EC2B01531B008D7F23 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				247C90ED2B015349008D7F23 /* Keychain.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		247C90F92B016E76008D7F23 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				247A90242AFB9B2B007F0805 /* LoginViewController.swift */,
+				247C90E12B01333C008D7F23 /* LoginTextField.swift */,
+				247C90E32B013361008D7F23 /* EyeButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		247C90FA2B016E79008D7F23 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				247A90262AFB9B3C007F0805 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		248368912AFCEC9200B9AC9A /* CharacterDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -719,6 +769,8 @@
 				247A906F2AFBDC9E007F0805 /* String+ext.swift */,
 				246101092AFC1C12000E1295 /* UITableViewController+ext.swift */,
 				246101282AFC54A6000E1295 /* UIImageView+ext.swift */,
+				247C90E52B013CDB008D7F23 /* UITextField+ext.swift */,
+				247C90E72B0143AA008D7F23 /* UIButton+ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -795,6 +847,7 @@
 		24E03B6D2AE6B1CB005E78DD /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				247C90EC2B01531B008D7F23 /* Keychain */,
 				24E03B722AE6B7DC005E78DD /* Coordinator */,
 				247A90112AFB9873007F0805 /* Router */,
 				246101112AFC4440000E1295 /* Components */,
@@ -899,9 +952,11 @@
 				247A90102AFB984C007F0805 /* ParentCoordinator.swift in Sources */,
 				247A90702AFBDC9E007F0805 /* String+ext.swift in Sources */,
 				248368A12AFD119900B9AC9A /* CharacterDetailRepositoryImp.swift in Sources */,
+				247C90E42B013361008D7F23 /* EyeButton.swift in Sources */,
 				247A90132AFB987C007F0805 /* Router.swift in Sources */,
 				2461010A2AFC1C12000E1295 /* UITableViewController+ext.swift in Sources */,
 				247A903A2AFBA698007F0805 /* CharactersFactory.swift in Sources */,
+				247C90E62B013CDB008D7F23 /* UITextField+ext.swift in Sources */,
 				246100FE2AFC0C1C000E1295 /* LoadCharacterUseCase.swift in Sources */,
 				247A90322AFB9CA9007F0805 /* ItemTabBarFactory.swift in Sources */,
 				247A907E2AFBE0E0007F0805 /* ResultsCharacterDTO.swift in Sources */,
@@ -914,13 +969,16 @@
 				247A90802AFBE10E007F0805 /* CharacterDTO.swift in Sources */,
 				247A90302AFB9C9C007F0805 /* MainTabBarCoordinator.swift in Sources */,
 				247A90722AFBDD35007F0805 /* AppLocalized.swift in Sources */,
+				247C90EE2B015349008D7F23 /* Keychain.swift in Sources */,
 				247A90642AFBC342007F0805 /* UIView+ext.swift in Sources */,
 				247A90402AFBA880007F0805 /* SettingCoordinator.swift in Sources */,
 				246101292AFC54A6000E1295 /* UIImageView+ext.swift in Sources */,
 				246101212AFC49F0000E1295 /* ImageDataRepository.swift in Sources */,
 				24E03B712AE6B2A3005E78DD /* AppCoordinator.swift in Sources */,
 				247A90622AFBC28E007F0805 /* Reusable.swift in Sources */,
+				247C90F02B015C8C008D7F23 /* ChangePassViewController.swift in Sources */,
 				248368A72AFD15C900B9AC9A /* LoadCharacterDetailUseCase.swift in Sources */,
+				247C90EB2B0152D4008D7F23 /* KeychainImp.swift in Sources */,
 				247A90272AFB9B3C007F0805 /* LoginViewModel.swift in Sources */,
 				247A901B2AFB99C9007F0805 /* Auth.swift in Sources */,
 				247A90252AFB9B2B007F0805 /* LoginViewController.swift in Sources */,
@@ -931,6 +989,7 @@
 				246101082AFC0F4A000E1295 /* StateController.swift in Sources */,
 				247A90742AFBDDEF007F0805 /* StatusCharacter.swift in Sources */,
 				247A903C2AFBA6A2007F0805 /* CharactersCoordinator.swift in Sources */,
+				247C90E22B01333C008D7F23 /* LoginTextField.swift in Sources */,
 				24E03B4D2AE6AB02005E78DD /* SceneDelegate.swift in Sources */,
 				2461011E2AFC48D6000E1295 /* LocalDataImageService.swift in Sources */,
 				247A90462AFBA98B007F0805 /* SettingsViewController.swift in Sources */,
@@ -938,6 +997,7 @@
 				247A90232AFB9AF3007F0805 /* LoginCoordinator.swift in Sources */,
 				247A90602AFBC230007F0805 /* ItemCharacterTableViewCell.swift in Sources */,
 				248368B12AFD5C5A00B9AC9A /* EpisodeDTO.swift in Sources */,
+				247C90E82B0143AA008D7F23 /* UIButton+ext.swift in Sources */,
 				247A90672AFBC3CA007F0805 /* Resources.swift in Sources */,
 				247A90162AFB9975007F0805 /* AppFactory.swift in Sources */,
 				246101272AFC4BAC000E1295 /* ImageDataUseCase.swift in Sources */,
