@@ -38,6 +38,7 @@ final class SettingsViewController: UITableViewController {
     // MARK: - Private methods
     private func setupView() {
         view.backgroundColor = .systemBackground
+        tableView.isScrollEnabled = false
     }
     
     private func setupTableView() {
