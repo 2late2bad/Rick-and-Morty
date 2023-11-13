@@ -11,7 +11,6 @@ import Combine
 protocol CharactersFactory {
     func makeCharactersViewController(coordinator: CharactersViewControllerCoordinator) -> UIViewController
     func makeItemTabBar(router: Router)
-//    func makePostDetailCoordinator(router: Router, id: Int, parentCoordinator: ParentCoordinator) -> Coordinator
     func makeCharacterDetailCoordinator(router: Router, parent: ParentCoordinator, episodes: [String]) -> Coordinator
 }
 
@@ -31,34 +30,26 @@ struct CharactersFactoryImp: CharactersFactory {
             state: state,
             lastPageValidationUseCase: lastPageValidationUseCase, imageDataUseCase: appDIContainer.getDataImageUseCase())
         let controller = CharactersViewController(viewModel: viewModel, coordinator: coordinator)
-        controller.navigationItem.title = "Персонажи"
+        controller.navigationItem.title = R.Name.charTitleVC
         return controller
     }
     
     func makeItemTabBar(router: Router) {
         makeItemTabBar(
             router: router,
-            title: "Персонажи",
-            image: "person.text.rectangle",
-            selectedImage: "person.text.rectangle.fill"
+            title: R.Name.charTitleVC,
+            image: R.Images.charItemTabBarDefault,
+            selectedImage: R.Images.charItemTabBarSelected
         )
     }
     
     func makeCharacterDetailCoordinator(router: Router, parent: ParentCoordinator, episodes: [String]) -> Coordinator {
-        let factory = CharacterDetailFactoryImp(episodes: episodes, appDIContainer: appDIContainer)
-        let coordinator = CharacterDetailCoordinator(router: router,
-                                                     characterDetailFactory: factory,
-                                                     parent: parent)
+        let factory = CharacterEpisodesFactoryImp(episodes: episodes, appDIContainer: appDIContainer)
+        let coordinator = CharacterEpisodesCoordinator(router: router,
+                                                       characterEpisodesFactory: factory,
+                                                       parent: parent)
         return coordinator
     }
-    
-//    func makeCharacterDetailCoordinator(router: Router, id: Int, parentCoordinator: ParentCoordinator) -> Coordinator {
-//        let factory = CharacterDetailFactory(id: id)
-//        let coordinator = CharacterDetailCoordinator(router: router,
-//                                                factory: factory,
-//                                                parentCoordinator: parentCoordinator)
-//        return coordinator
-//    }
 }
 
 extension CharactersFactoryImp: ItemTabBarFactory {}

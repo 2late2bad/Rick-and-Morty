@@ -14,6 +14,7 @@ protocol LoginViewControllerCoordinator: AnyObject {
 
 final class LoginViewController: UIViewController {
     
+    // MARK: - Property
     private weak var coordinator: LoginViewControllerCoordinator?
     private let viewModel: LoginViewModel
     var cancellables = Set<AnyCancellable>()
@@ -23,9 +24,9 @@ final class LoginViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-    private let loginTextField = LoginTextField(placeholder: "Введите логин", type: .username)
-    private let passTextField = LoginTextField(placeholder: "Введите пароль", type: .password)
-    private let repeatPassTextField = LoginTextField(placeholder: "Повторите пароль", type: .password)
+    private let loginTextField = RMLoginTextField(placeholder: "Введите логин", type: .username)
+    private let passTextField = RMLoginTextField(placeholder: "Введите пароль", type: .password)
+    private let repeatPassTextField = RMLoginTextField(placeholder: "Повторите пароль", type: .password)
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -41,6 +42,7 @@ final class LoginViewController: UIViewController {
                                              font: .systemFont(ofSize: 12, weight: .semibold),
                                              style: .plain)
     
+    // MARK: - Init
     init(coordinator: LoginViewControllerCoordinator?, viewModel: LoginViewModel) {
         self.coordinator = coordinator
         self.viewModel = viewModel
@@ -51,6 +53,7 @@ final class LoginViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -61,6 +64,7 @@ final class LoginViewController: UIViewController {
     }
 }
 
+// MARK: - Private methods
 private extension LoginViewController {
     
     func setupView() {
@@ -91,7 +95,6 @@ private extension LoginViewController {
         switchButton.setConstraints(right: view.rightAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, left: view.leftAnchor, pRight: 40, pBottom: 10, pLeft: 40)
     }
     
-    // MARK: - Publishers
     func addTextFieldPublishers() {
         loginTextField.textPublisher
             .assign(to: \.login, on: viewModel)
@@ -162,10 +165,7 @@ private extension LoginViewController {
                     }
                 case .failed(let message):
                     stackView.isUserInteractionEnabled = true
-                    UIAlertController.showSuccessAlert(
-                        title: "Ошибка входа",
-                        message: message,
-                        presentingViewController: self)
+                    self.presentAlert(message: message, title: "Ошибка входа")
                 case .none:
                     stackView.isUserInteractionEnabled = true
                 }
@@ -213,3 +213,5 @@ extension LoginViewController: UITextFieldDelegate {
         return true
     }
 }
+
+extension LoginViewController: MessageDisplayable {}

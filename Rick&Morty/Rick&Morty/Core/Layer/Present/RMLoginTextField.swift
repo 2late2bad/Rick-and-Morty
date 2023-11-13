@@ -1,5 +1,5 @@
 //
-//  LoginTextField.swift
+//  RMLoginTextField.swift
 //  Rick&Morty
 //
 //  Created by Alexander V. on 12.11.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class LoginTextField: UITextField {
+public class RMLoginTextField: UITextField {
 
     public enum TextFieldType {
         case username
@@ -36,7 +36,7 @@ public class LoginTextField: UITextField {
         self.fontSize = fontSize
         self.typeTextField = type
         self.height = height
-        eyeButton = EyeButton()
+        eyeButton = RMEyeButton()
 
         switch typeTextField {
         case .username, .email, .custom:

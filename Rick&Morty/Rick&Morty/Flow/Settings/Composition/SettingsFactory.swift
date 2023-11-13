@@ -14,7 +14,7 @@ struct SettingsFactory: ItemTabBarFactory {
     func makeSettingsController(coordinator: SettingsViewControllerCoordinator) -> UIViewController {
         let viewModel = SettingsViewModel(auth: appDIContainer.auth)
         let controller = SettingsViewController(viewModel: viewModel, coordinator: coordinator)
-        controller.title = "Настройки"
+        controller.title = R.Name.settingsTitleVC
         return controller
     }
     
@@ -25,8 +25,8 @@ struct SettingsFactory: ItemTabBarFactory {
         
     func makeTabBarItem(router: Router) {
         makeItemTabBar(router: router,
-                       title: "Настройки",
-                       image: "gearshape.2",
-                       selectedImage: "gearshape.2.fill")
+                       title: R.Name.settingsTitleVC,
+                       image: R.Images.settingsTabBarDefault,
+                       selectedImage: R.Images.settingsTabBarSelected)
     }
 }

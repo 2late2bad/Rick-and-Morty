@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - BAEyeButton
-public final class EyeButton: UIButton {
+public final class RMEyeButton: UIButton {
 
     // MARK: - Public override init
     public override init(frame: CGRect) {

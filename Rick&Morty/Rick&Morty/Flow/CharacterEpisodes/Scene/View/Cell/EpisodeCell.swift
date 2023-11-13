@@ -9,6 +9,7 @@ import UIKit
 
 final class EpisodeCell: UICollectionViewCell {
     
+    // MARK: - Private property
     private let episodeLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -16,6 +17,7 @@ final class EpisodeCell: UICollectionViewCell {
         label.font = .preferredFont(forTextStyle: .headline)
         return label
     }()
+    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -27,6 +29,7 @@ final class EpisodeCell: UICollectionViewCell {
         label.font = .preferredFont(forTextStyle: .subheadline)
         return label
     }()
+    
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -42,6 +45,7 @@ final class EpisodeCell: UICollectionViewCell {
         stackView.distribution = .equalSpacing
         return stackView
     }()
+    
     private lazy var gradientLayer: CAGradientLayer = {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = contentView.bounds
@@ -52,6 +56,7 @@ final class EpisodeCell: UICollectionViewCell {
         return gradientLayer
     }()
     
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSelf()
@@ -61,17 +66,20 @@ final class EpisodeCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Override
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = 20
     }
     
+    // MARK: - Configure
     func configure(with episode: Episode) {
         episodeLabel.text = episode.episode
         nameLabel.text = episode.name
         dateLabel.text = episode.airDate
     }
     
+    // MARK: - Private methods
     private func setupSelf() {
         contentView.addSubview(stackView)
         stackView.setConstraints(top: topAnchor,

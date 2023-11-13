@@ -9,15 +9,24 @@ struct AppLocalized {
     static let error = "Ошибка"
     static let okButton = "OK"
     
-    static let statusAlive = "Status: ❤️"
-    static let statusDead = "Status: ☠️"
-    static let statusUnknown = "Status: ❔"
+    static let statusAlive = "💚"
+    static let statusDead = "💀"
+    static let statusUnknown = "❓"
     
     static let alien = "Alien"
     static let human = "Human"
-    static let unknown = "Unknown"
+    static let unknown = "unknown"
     
-    static let specieHuman = "Specie: 👤 Human"
-    static let specieAlien = "Specie: 👽 Alien"
-    static let specie = "Specie:"
+    static let male = "Male"
+    static let female = "Female"
+    static let genderless = "Genderless"
+    
+    static let specieHuman = "Человек"
+    static let specieAlien = "Инопланетянин"
+    static let specie = "Что-то непонятное"
+    
+    static let genderMale = "Мужчина"
+    static let genderFemale = "Женщина"
+    static let genderNone = "Бесполый"
+    static let genderUnknown = "Неизвестный пол"
 }

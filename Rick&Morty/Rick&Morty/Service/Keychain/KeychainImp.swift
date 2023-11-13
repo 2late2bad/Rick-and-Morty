@@ -19,7 +19,10 @@ final class KeychainImp: Keychain {
             
             let status = SecItemAdd(query as CFDictionary, nil)
             if status != errSecSuccess {
-                print("Error saving to Keychain")
+                #if DEBUG
+                print(">DEBUG>")
+                print("Ошибка сохранения в Keychain")
+                #endif
             }
         }
     }
@@ -58,7 +61,10 @@ final class KeychainImp: Keychain {
         let status = SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
 
         if status != errSecSuccess {
-            print("Error updating password in Keychain")
+            #if DEBUG
+            print(">DEBUG>")
+            print("Ошибка обновления пароля в Keychain")
+            #endif
         }
     }
 }

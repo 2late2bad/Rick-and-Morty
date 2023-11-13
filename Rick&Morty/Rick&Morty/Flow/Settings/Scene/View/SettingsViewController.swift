@@ -13,9 +13,11 @@ protocol SettingsViewControllerCoordinator: AnyObject {
 
 final class SettingsViewController: UITableViewController {
     
+    // MARK: - Property
     private let viewModel: SettingsViewModel
     private weak var coordinator: SettingsViewControllerCoordinator?
     
+    // MARK: - Init
     init(viewModel: SettingsViewModel, coordinator: SettingsViewControllerCoordinator) {
         self.viewModel = viewModel
         self.coordinator = coordinator
@@ -26,12 +28,14 @@ final class SettingsViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupTableView()
     }
     
+    // MARK: - Private methods
     private func setupView() {
         view.backgroundColor = .systemBackground
     }
@@ -42,6 +46,7 @@ final class SettingsViewController: UITableViewController {
     }
 }
 
+// MARK: - TableViewDataSource & TableViewDelegate
 extension SettingsViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,9 +60,7 @@ extension SettingsViewController {
         contentConfiguration.text = viewModel.title
         contentConfiguration.image = UIImage(systemName: viewModel.icon)
         cell.contentConfiguration = contentConfiguration
-        if !viewModel.isNavigate {
-            cell.selectionStyle = .none
-        }
+        cell.selectionStyle = .none
         return cell
     }
     

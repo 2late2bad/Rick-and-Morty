@@ -9,33 +9,24 @@ import UIKit
 
 final class ChangePassViewController: UIViewController {
     
+    // MARK: - Property
     let user: String
     let keychain: Keychain
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Смена пароля"
-        label.textColor = .label
-        label.textAlignment = .center
-        label.font = .monospacedDigitSystemFont(ofSize: 20, weight: .bold)
-        return label
-    }()
+    private let titleLabel = RMLabel(text: "Смена пароля",
+                                       font: .monospacedDigitSystemFont(ofSize: 20, weight: .bold))
     
-    private lazy var userLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Ваш логин: \(user)"
-        label.textColor = .label
-        label.textAlignment = .center
-        label.font = .monospacedDigitSystemFont(ofSize: 16, weight: .light)
-        return label
-    }()
+    private lazy var userLabel = RMLabel(text: "Ваш логин: \(user)",
+                                           font: .monospacedDigitSystemFont(ofSize: 16, weight: .light))
     
-    private let changePassTextField = LoginTextField(placeholder: "Ваш новый пароль", type: .custom)
+    private let changePassTextField = RMLoginTextField(placeholder: "Ваш новый пароль",
+                                                       type: .custom)
     
     private let changePassButton = RMButton(title: "Изменить пароль",
                                             font: .systemFont(ofSize: 16, weight: .semibold),
                                             style: .filled)
     
+    // MARK: - Init
     init(user: String, keychain: Keychain) {
         self.user = user
         self.keychain = keychain
@@ -46,14 +37,19 @@ final class ChangePassViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         layoutUI()
         addAction()
     }
+}
+
+// MARK: - Private methods
+private extension ChangePassViewController {
     
-    private func setupViews() {
+    func setupViews() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tapGesture)
         view.backgroundColor = .secondarySystemBackground
@@ -64,34 +60,44 @@ final class ChangePassViewController: UIViewController {
         changePassTextField.delegate = self
     }
     
-    @objc private func handleTap() {
+    @objc func handleTap() {
         view.endEditing(true)
     }
     
-    private func layoutUI() {
-        titleLabel.setConstraints(top: view.topAnchor, right: view.rightAnchor, left: view.leftAnchor, pTop: 20, pRight: 10, pLeft: 10)
-        userLabel.setConstraints(top: titleLabel.bottomAnchor, right: view.rightAnchor, left: view.leftAnchor, pTop: 40, pRight: 10, pLeft: 10)
-        changePassTextField.setConstraints(top: userLabel.bottomAnchor, right: view.rightAnchor, left: view.leftAnchor, pTop: 25, pRight: 40, pLeft: 40)
+    func layoutUI() {
+        titleLabel.setConstraints(top: view.topAnchor,
+                                  right: view.rightAnchor,
+                                  left: view.leftAnchor,
+                                  pTop: 20, pRight: 10, pLeft: 10)
+        userLabel.setConstraints(top: titleLabel.bottomAnchor,
+                                 right: view.rightAnchor,
+                                 left: view.leftAnchor,
+                                 pTop: 40, pRight: 10, pLeft: 10)
+        changePassTextField.setConstraints(top: userLabel.bottomAnchor,
+                                           right: view.rightAnchor,
+                                           left: view.leftAnchor,
+                                           pTop: 25, pRight: 40, pLeft: 40)
         changePassTextField.setHeightConstraint(with: 40)
-        changePassButton.setConstraints(top: changePassTextField.bottomAnchor, right: view.rightAnchor, left: view.leftAnchor, pTop: 25, pRight: 40, pLeft: 40)
+        changePassButton.setConstraints(top: changePassTextField.bottomAnchor,
+                                        right: view.rightAnchor,
+                                        left: view.leftAnchor,
+                                        pTop: 25, pRight: 40, pLeft: 40)
         changePassButton.setHeightConstraint(with: 40)
     }
     
-    private func addAction() {
+    func addAction() {
         let changePassAction = UIAction { [weak self] _ in
             guard let self else { return }
             guard let text = changePassTextField.text, text.count > 5 else {
-                UIAlertController.showSuccessAlert(
-                    title: "Недопустимый пароль",
-                    message: "Пароль должен содержать не менее 6 символов",
-                    presentingViewController: self)
+                self.presentAlert(message: "Пароль должен содержать не менее 6 символов",
+                                  title: "Недопустимый пароль")
                 return
             }
             keychain.updatePassword(username: user, newPassword: text)
             view.endEditing(true)
             UIAlertController.showSuccessAlert(
                 title: "Успех!",
-                message: "Вы поменяли пароль",
+                message: "Вы поменяли пароль для логина \(user)",
                 presentingViewController: self) { [weak self] in
                     self?.changePassTextField.isEnabled = false
                     self?.changePassButton.isEnabled = false
@@ -102,6 +108,7 @@ final class ChangePassViewController: UIViewController {
     }
 }
 
+// MARK: - TextFieldDelegate
 extension ChangePassViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -109,3 +116,5 @@ extension ChangePassViewController: UITextFieldDelegate {
         return true
     }
 }
+
+extension ChangePassViewController: MessageDisplayable {}

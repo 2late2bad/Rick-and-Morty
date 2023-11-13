@@ -1,5 +1,5 @@
 //
-//  CharacterDetailRepositoryImp.swift
+//  CharacterEpisodesRepositoryImp.swift
 //  Rick&Morty
 //
 //  Created by Alexander V. on 09.11.2023.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct CharacterDetailRepositoryImp: CharacterDetailRepository {
+struct CharacterEpisodesRepositoryImp: CharacterEpisodesRepository {
 
     private(set) var network: Network
     
-    func fetchCharacterDetail(episodes: [String]) async throws -> [Episode] {
+    func fetchCharacter(episodes: [String]) async throws -> [Episode] {
         
         let urlEpisodes = Utils.createCombinedURL(from: episodes)
         

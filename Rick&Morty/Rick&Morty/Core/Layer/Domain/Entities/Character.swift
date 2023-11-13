@@ -14,5 +14,6 @@ struct Character {
     let urlImage: String?
     let origin: Origin
     let location: Location
+    let gender: Gender
     let episode: [String]
 }

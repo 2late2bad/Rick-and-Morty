@@ -16,6 +16,7 @@ protocol CharacterViewModel: BaseViewModel {
 
 final class CharacterViewModelImp: CharacterViewModel {
    
+    // MARK: - Public property
     var state: PassthroughSubject<StateController, Never>
     
     var lastPage: Bool {
@@ -26,11 +27,13 @@ final class CharacterViewModelImp: CharacterViewModel {
         characters.count
     }
     
+    // MARK: - Private property
     private var characters: [Character] = []
     private let loadCharactersUseCase: LoadCharacterUseCase
     private var lastPageValidationUseCase: LastPageValidationUseCase
     private var imageDataUseCase: ImageDataUseCase
     
+    // MARK: - Init
     init(
         loadCharactersUseCase: LoadCharacterUseCase,
         state: PassthroughSubject<StateController, Never>,
@@ -42,7 +45,8 @@ final class CharacterViewModelImp: CharacterViewModel {
         self.lastPageValidationUseCase = lastPageValidationUseCase
         self.imageDataUseCase = imageDataUseCase
     }
-
+    
+    // MARK: - Public methods
     func viewDidLoad() {
         state.send(.loading)
         Task {
@@ -59,13 +63,17 @@ final class CharacterViewModelImp: CharacterViewModel {
         let character = characters[row]
         return character.episode
     }
+}
+
+// MARK: - Private methods
+private extension CharacterViewModelImp {
     
-    private func loadCharactersUseCase() async {
+    func loadCharactersUseCase() async {
         let resultUseCase = await loadCharactersUseCase.execute()
         updateStateUI(resultUseCase: resultUseCase)
     }
     
-    private func updateStateUI(resultUseCase: Result<[Character], Error>) {
+    func updateStateUI(resultUseCase: Result<[Character], Error>) {
         switch resultUseCase {
         case .success(let char):
             lastPageValidationUseCase.updateLastPage(itemsCount: char.count)
@@ -76,12 +84,12 @@ final class CharacterViewModelImp: CharacterViewModel {
         }
     }
     
-    private func makeItemCharacterViewModel(row: Int) -> ItemCharacterViewModel {
+    func makeItemCharacterViewModel(row: Int) -> ItemCharacterViewModel {
         let character = characters[row]
         return ItemCharacterViewModel(character: character, dataImageUseCase: imageDataUseCase)
     }
     
-    private func checkAndLoadMoreCharacters(row: Int) {
+    func checkAndLoadMoreCharacters(row: Int) {
         lastPageValidationUseCase.checkAndLoadMoreItems(
             row: row,
             actualItems: characters.count,
