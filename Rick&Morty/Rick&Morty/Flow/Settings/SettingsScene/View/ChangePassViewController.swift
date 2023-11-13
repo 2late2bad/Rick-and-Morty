@@ -31,21 +31,10 @@ final class ChangePassViewController: UIViewController {
     }()
     
     private let changePassTextField = LoginTextField(placeholder: "Ваш новый пароль", type: .custom)
-    private let changePassButton: UIButton = {
-        let button = UIButton(type: .system)
-        var configuration = UIButton.Configuration.filled()
-        configuration.baseBackgroundColor = UIColor.systemGreen
-        configuration.baseForegroundColor = .label
-        configuration.background.cornerRadius = 12
-        
-        var container = AttributeContainer()
-        container.font = .systemFont(ofSize: 16, weight: .semibold)
-        configuration.attributedTitle = AttributedString("Изменить пароль", attributes: container)
-        
-        button.configuration = configuration
-        button.setHeightConstraint(with: 40)
-        return button
-    }()
+    
+    private let changePassButton = RMButton(title: "Изменить пароль",
+                                            font: .systemFont(ofSize: 16, weight: .semibold),
+                                            style: .filled)
     
     init(user: String, keychain: Keychain) {
         self.user = user
@@ -65,11 +54,18 @@ final class ChangePassViewController: UIViewController {
     }
     
     private func setupViews() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
         view.backgroundColor = .secondarySystemBackground
         view.addSubview(titleLabel)
         view.addSubview(userLabel)
         view.addSubview(changePassTextField)
         view.addSubview(changePassButton)
+        changePassTextField.delegate = self
+    }
+    
+    @objc private func handleTap() {
+        view.endEditing(true)
     }
     
     private func layoutUI() {
@@ -83,23 +79,33 @@ final class ChangePassViewController: UIViewController {
     
     private func addAction() {
         let changePassAction = UIAction { [weak self] _ in
-            guard let self, let text = changePassTextField.text, text.count > 5  else {
-                let alert = UIAlertController(title: "Недопустимый пароль", message: "Пароль должен содержать не менее 6 символов", preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .cancel)
-                alert.addAction(action)
-                self?.present(alert, animated: true)
+            guard let self else { return }
+            guard let text = changePassTextField.text, text.count > 5 else {
+                UIAlertController.showSuccessAlert(
+                    title: "Недопустимый пароль",
+                    message: "Пароль должен содержать не менее 6 символов",
+                    presentingViewController: self)
                 return
             }
             keychain.updatePassword(username: user, newPassword: text)
-            let alert = UIAlertController(title: "Успех!", message: "Вы поменяли пароль", preferredStyle: .alert)
-            let action = UIAlertAction(title: "ОК", style: .default) { [weak self] _ in
-                self?.changePassTextField.isEnabled = false
-                self?.changePassButton.isEnabled = false
-                self?.dismiss(animated: true)
-            }
-            alert.addAction(action)
-            self.present(alert, animated: true)
+            view.endEditing(true)
+            UIAlertController.showSuccessAlert(
+                title: "Успех!",
+                message: "Вы поменяли пароль",
+                presentingViewController: self) { [weak self] in
+                    self?.changePassTextField.isEnabled = false
+                    self?.changePassButton.isEnabled = false
+                    self?.dismiss(animated: true)
+                }
         }
         changePassButton.addAction(changePassAction, for: .touchUpInside)
+    }
+}
+
+extension ChangePassViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        changePassButton.sendActions(for: .touchUpInside)
+        return true
     }
 }

@@ -13,7 +13,7 @@ final class LoginViewModel: ObservableObject {
     // MARK: - View state
     enum ViewState {
         case loading
-        case success
+        case success(reg: Bool)
         case failed(String)
         case none
     }
@@ -91,13 +91,17 @@ final class LoginViewModel: ObservableObject {
         if isAuth {
             if password == keychain.retrieveCredentials(username: login) {
                 loginAuth?.logIn(user: login)
-                self.state = .success
+                self.state = .success(reg: false)
             } else {
                 self.state = .failed("Некорректный логин или пароль")
             }
         } else {
             keychain.saveCredentials(username: login, password: password)
-            state = .success
+            state = .success(reg: true)
         }
+    }
+    
+    func doneRegister() {
+        isAuth = true
     }
 }

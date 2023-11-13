@@ -95,6 +95,8 @@
 		24E03B542AE6AB03005E78DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E03B532AE6AB03005E78DD /* Assets.xcassets */; };
 		24E03B572AE6AB03005E78DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E03B552AE6AB03005E78DD /* LaunchScreen.storyboard */; };
 		24E03B712AE6B2A3005E78DD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03B702AE6B2A3005E78DD /* AppCoordinator.swift */; };
+		24E6A45C2B02415A007D9009 /* UIAlertController+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E6A45B2B02415A007D9009 /* UIAlertController+ext.swift */; };
+		24E6A45E2B025979007D9009 /* RMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E6A45D2B025979007D9009 /* RMButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -188,6 +190,8 @@
 		24E03B562AE6AB03005E78DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24E03B582AE6AB03005E78DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24E03B702AE6B2A3005E78DD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		24E6A45B2B02415A007D9009 /* UIAlertController+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+ext.swift"; sourceTree = "<group>"; };
+		24E6A45D2B025979007D9009 /* RMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,6 +544,9 @@
 			children = (
 				246101072AFC0F4A000E1295 /* StateController.swift */,
 				246101052AFC0ED6000E1295 /* BaseViewModel.swift */,
+				247C90E12B01333C008D7F23 /* LoginTextField.swift */,
+				247C90E32B013361008D7F23 /* EyeButton.swift */,
+				24E6A45D2B025979007D9009 /* RMButton.swift */,
 			);
 			path = Present;
 			sourceTree = "<group>";
@@ -644,8 +651,6 @@
 			isa = PBXGroup;
 			children = (
 				247A90242AFB9B2B007F0805 /* LoginViewController.swift */,
-				247C90E12B01333C008D7F23 /* LoginTextField.swift */,
-				247C90E32B013361008D7F23 /* EyeButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -771,6 +776,7 @@
 				246101282AFC54A6000E1295 /* UIImageView+ext.swift */,
 				247C90E52B013CDB008D7F23 /* UITextField+ext.swift */,
 				247C90E72B0143AA008D7F23 /* UIButton+ext.swift */,
+				24E6A45B2B02415A007D9009 /* UIAlertController+ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -942,6 +948,7 @@
 				248368992AFCED3700B9AC9A /* CharacterDetailFactory.swift in Sources */,
 				247A90762AFBDE07007F0805 /* Specie.swift in Sources */,
 				246101102AFC2524000E1295 /* LastPageValidationUseCase.swift in Sources */,
+				24E6A45C2B02415A007D9009 /* UIAlertController+ext.swift in Sources */,
 				247A90782AFBE02C007F0805 /* Origin.swift in Sources */,
 				2483689E2AFCF84900B9AC9A /* CharacterDetailRepository.swift in Sources */,
 				247A902C2AFB9BDC007F0805 /* MainTabBarController.swift in Sources */,
@@ -986,6 +993,7 @@
 				248368AD2AFD2D1C00B9AC9A /* SpinnerDisplayable.swift in Sources */,
 				248368B62AFD9A1E00B9AC9A /* Utils.swift in Sources */,
 				246101132AFC4451000E1295 /* MessageDisplayable.swift in Sources */,
+				24E6A45E2B025979007D9009 /* RMButton.swift in Sources */,
 				246101082AFC0F4A000E1295 /* StateController.swift in Sources */,
 				247A90742AFBDDEF007F0805 /* StatusCharacter.swift in Sources */,
 				247A903C2AFBA6A2007F0805 /* CharactersCoordinator.swift in Sources */,

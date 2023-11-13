@@ -89,14 +89,14 @@ public class LoginTextField: UITextField {
         }
 
         layer.cornerRadius = 12
-        layer.backgroundColor = UIColor.gray.withAlphaComponent(0.2).cgColor
+        layer.backgroundColor = UIColor.systemGray.withAlphaComponent(0.2).cgColor
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 10
         layer.shadowOpacity = 0.1
 
         attributedPlaceholder = NSAttributedString(
             string: placeholderText,
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black.withAlphaComponent(0.3)]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.label.withAlphaComponent(0.3)]
         )
         font = .systemFont(ofSize: fontSize, weight: .light)
 

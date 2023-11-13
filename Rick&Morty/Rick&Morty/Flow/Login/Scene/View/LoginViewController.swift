@@ -18,26 +18,14 @@ final class LoginViewController: UIViewController {
     private let viewModel: LoginViewModel
     var cancellables = Set<AnyCancellable>()
     
+    private let logoImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "rickmortyportal"))
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
     private let loginTextField = LoginTextField(placeholder: "Введите логин", type: .username)
     private let passTextField = LoginTextField(placeholder: "Введите пароль", type: .password)
     private let repeatPassTextField = LoginTextField(placeholder: "Повторите пароль", type: .password)
-    
-    private let loginButton: UIButton = {
-        let button = UIButton(type: .system)
-        var configuration = UIButton.Configuration.filled()
-        configuration.baseBackgroundColor = UIColor.systemGreen
-        configuration.baseForegroundColor = .label
-        configuration.background.cornerRadius = 12
-        
-        var container = AttributeContainer()
-        container.font = .systemFont(ofSize: 16, weight: .semibold)
-        configuration.attributedTitle = AttributedString(".", attributes: container)
-        
-        button.configuration = configuration
-        button.setHeightConstraint(with: 40)
-        return button
-    }()
-    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -45,19 +33,13 @@ final class LoginViewController: UIViewController {
         return stackView
     }()
     
-    private lazy var switchButton: UIButton = {
-        let button = UIButton(type: .system)
-        var configuration = UIButton.Configuration.plain()
-        configuration.baseForegroundColor = .systemBlue
-        
-        var container = AttributeContainer()
-        container.font = .systemFont(ofSize: 12, weight: .semibold)
-        configuration.attributedTitle = AttributedString(".", attributes: container)
-        
-        button.configuration = configuration
-        button.setHeightConstraint(with: 40)
-        return button
-    }()
+    private let loginButton = RMButton(title: ".",
+                                       font: .systemFont(ofSize: 16, weight: .semibold),
+                                       style: .filled)
+    
+    private let switchButton = RMButton(title: ".",
+                                             font: .systemFont(ofSize: 12, weight: .semibold),
+                                             style: .plain)
     
     init(coordinator: LoginViewControllerCoordinator?, viewModel: LoginViewModel) {
         self.coordinator = coordinator
@@ -83,6 +65,7 @@ private extension LoginViewController {
     
     func setupView() {
         view.backgroundColor = .systemBackground
+        view.addSubview(logoImageView)
         view.addSubview(stackView)
         view.addSubview(loginButton)
         view.addSubview(switchButton)
@@ -94,6 +77,11 @@ private extension LoginViewController {
     }
     
     func layoutUI() {
+        logoImageView.setConstraints(top: view.safeAreaLayoutGuide.topAnchor, pTop: 10)
+        logoImageView.centerX()
+        logoImageView.setHeightConstraint(with: 180)
+        logoImageView.setWidthConstraint(with: 180)
+        
         stackView.setConstraints(right: view.rightAnchor, left: view.leftAnchor, pRight: 40, pLeft: 40)
         stackView.centerY()
         
@@ -158,17 +146,26 @@ private extension LoginViewController {
                 case .loading:
                     stackView.isUserInteractionEnabled = false
                     loginButton.isEnabled = false
-                case .success:
-                    stackView.isUserInteractionEnabled = true
-                    self.coordinator?.didFinish()
+                case .success(let reg):
+                    if reg {
+                        stackView.isUserInteractionEnabled = true
+                        UIAlertController.showSuccessAlert(
+                            title: "Успех",
+                            message: "Вы зарегистрировали аккаунт \(viewModel.login)",
+                            presentingViewController: self) { [weak self] in
+                                guard let self else { return }
+                                viewModel.doneRegister()
+                            }
+                    } else {
+                        stackView.isUserInteractionEnabled = true
+                        self.coordinator?.didFinish()
+                    }
                 case .failed(let message):
-                    //
-                    let alert = UIAlertController(title: "Ошибка входа", message: message, preferredStyle: .alert)
-                    let action = UIAlertAction(title: "OK", style: .cancel)
-                    alert.addAction(action)
-                    present(alert, animated: true)
-                    
                     stackView.isUserInteractionEnabled = true
+                    UIAlertController.showSuccessAlert(
+                        title: "Ошибка входа",
+                        message: message,
+                        presentingViewController: self)
                 case .none:
                     stackView.isUserInteractionEnabled = true
                 }
@@ -206,5 +203,13 @@ extension LoginViewController: UITextFieldDelegate {
             repeatPassTextField.eyeButton.isEnabled = !text.isEmpty
         default: break
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if loginButton.isEnabled {
+            loginButton.sendActions(for: .touchUpInside)
+        }
+        return true
     }
 }
