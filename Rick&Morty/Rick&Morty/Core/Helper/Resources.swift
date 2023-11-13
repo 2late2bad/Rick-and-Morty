@@ -20,7 +20,7 @@ enum Resources {
         static let normalPadding: CGFloat = 10
         // For Cells
         static let defaultHeightCell = 44
-        static let defaultHeightContainerCell: CGFloat = 100
+        static let defaultHeightContainerCell: CGFloat = 110
         static let defaultCornerRadius: CGFloat = 10
     }
     

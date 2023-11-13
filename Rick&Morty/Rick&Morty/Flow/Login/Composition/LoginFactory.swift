@@ -14,7 +14,7 @@ struct LoginFactory {
     func makeLoginViewController(coordinator: LoginViewControllerCoordinator) -> UIViewController {
         LoginViewController(
             coordinator: coordinator,
-            viewModel: LoginViewModel(loginAuth: appDIContainer.auth)
+            viewModel: LoginViewModel(loginAuth: appDIContainer.auth, keychain: appDIContainer.keychain)
         )
     }
 }

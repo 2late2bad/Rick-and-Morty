@@ -43,30 +43,9 @@ extension SettingsCoordinator: SettingsViewControllerCoordinator {
     func didSelectCell(settingsViewNavigation: SettingsViewNavigation) {
         switch settingsViewNavigation {
         case .changePassword:
-            // router.pushViewController(factory.makeChangePassViewController(), animated: true)
-            break
+            router.present(factory.makeChangePasswordController(), animated: true)
         case .logout:
             delegate?.didTapLogout()
         }
     }
-    
-    private func callUserConfigurationCoordinator() {
-//        let userConfigurationCoordinator = factory.makeUserConfigurationCoordinator(delegate: self)
-//        addChild(userConfigurationCoordinator)
-//
-//        router.present(userConfigurationCoordinator.navigation.rootViewController, animated: true)
-//        // Если открываем модально, а не на фулл экран:
-//        userConfigurationCoordinator.navigation.dismissNavigation = { [weak self] in
-//            self?.removeChild(userConfigurationCoordinator)
-//        }
-    }
 }
-
-//extension SettingsCoordinator: UserConfigurationCoordinatorDelegate {
-//    func didFinish(childCoordinator: Coordinator) {
-//        // Если открываем на фулл экран:
-//        childCoordinator.router.dismissNavigation = nil
-//        removeChild(childCoordinator)
-//        router.dismiss(animated: true)
-//    }
-//}
