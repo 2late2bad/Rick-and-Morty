@@ -10,11 +10,11 @@ final class SettingsViewModel {
     // MARK: - Private property
     private var itemsSettingViewModel: [ItemSettingViewModel] = [
         ItemSettingViewModel(title: "Сменить пароль",
-                             icon: "archivebox.circle",
+                             icon: R.Images.settingChangePass,
                              isNavigate: true,
                              navigation: .changePassword),
         ItemSettingViewModel(title: "Выход",
-                             icon: "door.right.hand.open",
+                             icon: R.Images.settingExit,
                              isNavigate: true,
                              navigation: .logout)
     ]

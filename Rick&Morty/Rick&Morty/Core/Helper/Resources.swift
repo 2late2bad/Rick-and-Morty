@@ -32,10 +32,16 @@ enum Resources {
     
     enum Images {
         static let defaultImage = "default"
+        
+        // Tab Bar Items
         static let charItemTabBarDefault = "person.text.rectangle"
         static let charItemTabBarSelected = "person.text.rectangle.fill"
         static let settingsTabBarDefault = "gearshape.2"
         static let settingsTabBarSelected = "gearshape.2.fill"
+        
+        // Setting items
+        static let settingChangePass = "keyboard.badge.eye"
+        static let settingExit = "door.right.hand.open"
     }
     
     enum UDKeys {

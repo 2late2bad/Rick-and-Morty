@@ -30,7 +30,7 @@ final class LoginViewController: UIViewController {
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 25
+        stackView.spacing = 20
         return stackView
     }()
     
@@ -89,7 +89,7 @@ private extension LoginViewController {
         stackView.setConstraints(right: view.rightAnchor, left: view.leftAnchor, pRight: 40, pLeft: 40)
         stackView.centerY()
         
-        loginButton.setConstraints(top: stackView.bottomAnchor, right: view.rightAnchor, left: view.leftAnchor, pTop: 25, pRight: 40, pLeft: 40)
+        loginButton.setConstraints(top: stackView.bottomAnchor, right: view.rightAnchor, left: view.leftAnchor, pTop: 20, pRight: 40, pLeft: 40)
         loginButton.setHeightConstraint(with: 40)
         
         switchButton.setConstraints(right: view.rightAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, left: view.leftAnchor, pRight: 40, pBottom: 10, pLeft: 40)

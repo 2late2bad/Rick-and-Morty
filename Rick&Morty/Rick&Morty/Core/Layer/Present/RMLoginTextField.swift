@@ -73,10 +73,12 @@ public class RMLoginTextField: UITextField {
         autocorrectionType = .no
         autocapitalizationType = .none
         rightViewMode = .never
+        spellCheckingType = .no
 
         switch typeTextField {
         case .username, .custom:
-            break
+            textContentType = .oneTimeCode
+            isSecureTextEntry = false
         case .email:
             keyboardType = .emailAddress
             textContentType = .emailAddress
