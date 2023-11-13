@@ -55,9 +55,7 @@ extension SettingsViewController {
         contentConfiguration.text = viewModel.title
         contentConfiguration.image = UIImage(systemName: viewModel.icon)
         cell.contentConfiguration = contentConfiguration
-        if !viewModel.isNavigate {
-            cell.selectionStyle = .none
-        }
+        cell.selectionStyle = .none
         return cell
     }
     
