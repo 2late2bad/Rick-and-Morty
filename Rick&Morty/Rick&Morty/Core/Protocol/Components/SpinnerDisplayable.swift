@@ -46,5 +46,4 @@ extension SpinnerDisplayable where Self : UIViewController {
     private var parentView: UIView {
         navigationController?.view ?? view
     }
-
 }

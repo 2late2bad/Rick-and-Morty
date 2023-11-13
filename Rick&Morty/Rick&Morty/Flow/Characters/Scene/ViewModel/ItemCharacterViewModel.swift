@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct ItemCharacterViewModel { 
+struct ItemCharacterViewModel {
+    
+    // MARK: - Property
     private(set) var character: Character
     private(set) var dataImageUseCase: ImageDataUseCase
     
@@ -23,10 +25,15 @@ struct ItemCharacterViewModel {
         character.status?.description ?? ""
     }
     
+    var gender: String {
+        character.gender.description
+    }
+    
     var imageData: Data? {
         dataImageUseCase.getDataFromCache(url: character.urlImage)
     }
     
+    // MARK: - Methods
     func getImageData() async -> Data? {
         let url = URL(string: character.urlImage ?? .empty)
         return await dataImageUseCase.getData(url: url)

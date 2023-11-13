@@ -47,7 +47,7 @@ final class AppCoordinator: Coordinator {
         addChild(mainTabBarCoordinator)
     }
     
-    // Helpers
+    // Вспомогательный метод
     private func clearCoordinatorsAndStart() {
         router.viewControllers = []
         clearAllChilds()

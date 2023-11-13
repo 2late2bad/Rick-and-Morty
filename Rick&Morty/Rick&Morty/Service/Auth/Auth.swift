@@ -23,19 +23,19 @@ protocol LogoutAuth {
 final class Auth {
     private var session: Bool {
         didSet {
-            UserDefaults.standard.set(session, forKey: "auth")
+            UserDefaults.standard.set(session, forKey: R.UDKeys.auth)
         }
     }
     
     private var loginUser: String? {
         didSet {
-            UserDefaults.standard.set(loginUser, forKey: "login_user")
+            UserDefaults.standard.set(loginUser, forKey: R.UDKeys.loginUser)
         }
     }
     
     init() {
-        self.session = UserDefaults.standard.bool(forKey: "auth")
-        self.loginUser = UserDefaults.standard.string(forKey: "login_user")
+        self.session = UserDefaults.standard.bool(forKey: R.UDKeys.auth)
+        self.loginUser = UserDefaults.standard.string(forKey: R.UDKeys.loginUser)
     }
 }
 

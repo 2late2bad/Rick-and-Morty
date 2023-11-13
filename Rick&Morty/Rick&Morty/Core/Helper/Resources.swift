@@ -11,6 +11,12 @@ typealias R = Resources
 
 enum Resources {
     
+    enum Name {
+        static let charTitleVC = "Персонажи"
+        static let charEpisodesTitleVC = "Эпизоды"
+        static let settingsTitleVC = "Настройки"
+    }
+    
     enum ViewValues {
         // Common
         static let widthScreen = UIScreen.main.bounds.width
@@ -20,11 +26,20 @@ enum Resources {
         static let normalPadding: CGFloat = 10
         // For Cells
         static let defaultHeightCell = 44
-        static let defaultHeightContainerCell: CGFloat = 110
+        static let defaultHeightContainerCell: CGFloat = 100
         static let defaultCornerRadius: CGFloat = 10
     }
     
     enum Images {
         static let defaultImage = "default"
+        static let charItemTabBarDefault = "person.text.rectangle"
+        static let charItemTabBarSelected = "person.text.rectangle.fill"
+        static let settingsTabBarDefault = "gearshape.2"
+        static let settingsTabBarSelected = "gearshape.2.fill"
+    }
+    
+    enum UDKeys {
+        static let auth = "auth"
+        static let loginUser = "login_user"
     }
 }

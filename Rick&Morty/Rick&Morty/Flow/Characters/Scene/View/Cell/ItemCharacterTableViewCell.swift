@@ -10,9 +10,11 @@ import UIKit
 final class ItemCharacterTableViewCell: UITableViewCell {
     
     // MARK: - Property
+    private var task: Task<Void, Never>?
+
     private let mainContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .tertiarySystemGroupedBackground
+        view.backgroundColor = .secondarySystemBackground
         view.setHeightConstraint(with: R.ViewValues.defaultHeightContainerCell)
         view.layer.cornerRadius = R.ViewValues.defaultCornerRadius
         view.layer.masksToBounds = true
@@ -36,13 +38,26 @@ final class ItemCharacterTableViewCell: UITableViewCell {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .headline, compatibleWith: .init(legibilityWeight: .bold))
-        label.textColor = .systemBlue
+        label.textColor = .systemMint
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.lineBreakMode = .byTruncatingTail
         return label
     }()
     
     private let specieLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .callout)
+        label.font = .preferredFont(forTextStyle: .subheadline)
+        label.textColor = .secondaryLabel
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.7
+        return label
+    }()
+
+    private let genderLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .secondaryLabel
+        label.font = .preferredFont(forTextStyle: .footnote, compatibleWith: .init(legibilityWeight: .regular))
         return label
     }()
     
@@ -56,31 +71,35 @@ final class ItemCharacterTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupSelf()
+        layoutUI()
     }
-    
-    private var task: Task<Void, Never>?
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Override methods
     override func prepareForReuse() {
         super.prepareForReuse()
         task?.cancel()
     }
     
-    // MARK: - Methods
+    // MARK: - Configure
     func configure(viewModel: ItemCharacterViewModel) {
         nameLabel.text = viewModel.name
-        specieLabel.text = viewModel.specie
         statusLabel.text = viewModel.status
+        specieLabel.text = viewModel.specie
+        genderLabel.text = viewModel.gender
         setImage(viewModel: viewModel)
     }
     
+    // MARK: - Private methods
     private func setupSelf() {
         selectionStyle = .none
         addSubview(mainContainerView)
-        
+    }
+    
+    private func layoutUI() {
         mainContainerView.setConstraints(
             top: topAnchor,
             right: rightAnchor,
@@ -94,17 +113,23 @@ final class ItemCharacterTableViewCell: UITableViewCell {
             top: mainContainerView.topAnchor,
             bottom: mainContainerView.bottomAnchor,
             left: mainContainerView.leftAnchor)
+        mainContainerView.addSubview(statusLabel)
+        statusLabel.setConstraints(right: mainContainerView.rightAnchor,
+                                   pRight: 10)
+        statusLabel.centerY()
+        statusLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         mainContainerView.addSubview(labelContainerStackView)
         labelContainerStackView.setConstraints(
             top: mainContainerView.topAnchor,
-            right: mainContainerView.rightAnchor,
+            right: statusLabel.leftAnchor,
             bottom: mainContainerView.bottomAnchor,
             left: characterImageView.rightAnchor,
             pTop: R.ViewValues.normalPadding,
+            pRight: 10,
             pBottom: R.ViewValues.normalPadding,
             pLeft: R.ViewValues.normalPadding)
         
-        [nameLabel, specieLabel, statusLabel].forEach { labelContainerStackView.addArrangedSubview($0) }
+        [nameLabel, specieLabel, genderLabel].forEach { labelContainerStackView.addArrangedSubview($0) }
     }
     
     private func setImage(viewModel: ItemCharacterViewModel) {

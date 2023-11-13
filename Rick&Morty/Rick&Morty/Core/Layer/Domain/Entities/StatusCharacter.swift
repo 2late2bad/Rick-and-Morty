@@ -31,4 +31,15 @@ extension StatusCharacter: CustomStringConvertible {
             return AppLocalized.statusUnknown
         }
     }
+    
+    var isAlive: Bool? {
+        switch self {
+        case .alive:
+            return true
+        case .dead:
+            return false
+        case .unknown:
+            return nil
+        }
+    }
 }

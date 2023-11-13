@@ -1,5 +1,5 @@
 //
-//  CharacterDetailViewController.swift
+//  CharacterEpisodesViewController.swift
 //  Rick&Morty
 //
 //  Created by Alexander V. on 09.11.2023.
@@ -8,13 +8,14 @@
 import UIKit
 import Combine
 
-protocol CharacterDetailViewControllerCoordinator {}
+protocol CharacterEpisodesViewControllerCoordinator {}
 
-final class CharacterDetailViewController: UIViewController {
+final class CharacterEpisodesViewController: UIViewController {
     
+    // MARK: - Private property
     private var cancellables = Set<AnyCancellable>()
-    private let viewModel: CharacterDetailViewModel
-    private let coordinator: CharacterDetailViewControllerCoordinator
+    private let viewModel: CharacterEpisodesViewModel
+    private let coordinator: CharacterEpisodesViewControllerCoordinator
     
     private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -31,8 +32,9 @@ final class CharacterDetailViewController: UIViewController {
         return layout
     }()
     
-    init(viewModel: CharacterDetailViewModel,
-         coordinator: CharacterDetailViewControllerCoordinator) {
+    // MARK: - Init
+    init(viewModel: CharacterEpisodesViewModel,
+         coordinator: CharacterEpisodesViewControllerCoordinator) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -42,6 +44,7 @@ final class CharacterDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -50,7 +53,8 @@ final class CharacterDetailViewController: UIViewController {
     }
 }
 
-private extension CharacterDetailViewController {
+// MARK: - Private methods
+private extension CharacterEpisodesViewController {
     
     func setupViews() {
         view.backgroundColor = .systemBackground
@@ -78,7 +82,8 @@ private extension CharacterDetailViewController {
     }
 }
 
-extension CharacterDetailViewController: UICollectionViewDataSource {
+// MARK: - CollectionViewDataSource
+extension CharacterEpisodesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.episodes.count
@@ -96,5 +101,5 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
     }
 }
 
-extension CharacterDetailViewController: SpinnerDisplayable {}
-extension CharacterDetailViewController: MessageDisplayable {}
+extension CharacterEpisodesViewController: SpinnerDisplayable {}
+extension CharacterEpisodesViewController: MessageDisplayable {}

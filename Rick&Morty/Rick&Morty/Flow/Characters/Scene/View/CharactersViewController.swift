@@ -14,10 +14,12 @@ protocol CharactersViewControllerCoordinator: AnyObject {
 
 final class CharactersViewController: UITableViewController {
     
+    // MARK: - Property
     private weak var coordinator: CharactersViewControllerCoordinator?
     private let viewModel: CharacterViewModel
     private var cancellables = Set<AnyCancellable>()
     
+    // MARK: - Init
     init(viewModel: CharacterViewModel, coordinator: CharactersViewControllerCoordinator) {
         self.viewModel = viewModel
         self.coordinator = coordinator
@@ -28,6 +30,7 @@ final class CharactersViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.viewDidLoad()
@@ -36,6 +39,7 @@ final class CharactersViewController: UITableViewController {
     }
 }
 
+// MARK: - Private methods
 private extension CharactersViewController {
     
     func setupSelf() {

@@ -7,24 +7,30 @@
 
 final class SettingsViewModel {
     
+    // MARK: - Private property
     private var itemsSettingViewModel: [ItemSettingViewModel] = [
-        ItemSettingViewModel(title: "Сменить пароль", icon: "archivebox.circle", isNavigate: true, navigation: .changePassword),
-        ItemSettingViewModel(title: "Выход", icon: "door.right.hand.open", isNavigate: true, navigation: .logout)
+        ItemSettingViewModel(title: "Сменить пароль",
+                             icon: "archivebox.circle",
+                             isNavigate: true,
+                             navigation: .changePassword),
+        ItemSettingViewModel(title: "Выход",
+                             icon: "door.right.hand.open",
+                             isNavigate: true,
+                             navigation: .logout)
     ]
     private var auth: LogoutAuth?
     
+    // MARK: - Public property
     var settingCount: Int {
         itemsSettingViewModel.count
     }
     
+    // MARK: - Init
     init(auth: LogoutAuth?) {
         self.auth = auth
     }
     
-    private func logout() {
-        auth?.logOut()
-    }
-    
+    // MARK: - Public methods
     func getItemSettingsViewModel(row: Int) -> ItemSettingViewModel {
         itemsSettingViewModel[row]
     }
@@ -33,5 +39,10 @@ final class SettingsViewModel {
         let router = itemsSettingViewModel[row].navigation
         if router == .logout { logout() }
         return router
+    }
+    
+    // MARK: - Private methods
+    private func logout() {
+        auth?.logOut()
     }
 }

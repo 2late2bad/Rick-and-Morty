@@ -11,6 +11,7 @@ extension ResultsCharacterDTO {
             let statusCharacter = StatusCharacter(status: $0.status)
             let specie = Specie(specie: $0.species)
             let origin = Origin(name: $0.origin.name, url: $0.origin.url)
+            let gender = Gender(description: $0.gender.rawValue)
             let location = Location(
                 name: $0.location.name,
                 type: $0.location.type,
@@ -25,6 +26,7 @@ extension ResultsCharacterDTO {
                 urlImage: $0.image,
                 origin: origin,
                 location: location,
+                gender: gender,
                 episode: $0.episode)
         }
         let info = Info(next: info.next)

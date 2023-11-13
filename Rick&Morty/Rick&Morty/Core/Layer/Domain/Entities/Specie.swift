@@ -8,6 +8,7 @@
 enum Specie {
     case alien
     case human
+    case unknown
     case other(type: String?)
     
     init(specie: String?) {
@@ -16,6 +17,8 @@ enum Specie {
             self = .alien
         case AppLocalized.human:
             self = .human
+        case AppLocalized.unknown:
+            self = .unknown
         default:
             self = .other(type: specie)
         }
@@ -29,9 +32,11 @@ extension Specie: CustomStringConvertible {
             return AppLocalized.specieAlien
         case .human:
             return AppLocalized.specieHuman
+        case .unknown:
+            return AppLocalized.specie
         case .other(type: let typeSpecie):
             let typeSpecie = typeSpecie ?? AppLocalized.unknown
-            return "\(AppLocalized.specie) \(typeSpecie)"
+            return "\(typeSpecie)"
         }
     }
 }
